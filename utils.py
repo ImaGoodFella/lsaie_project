@@ -183,5 +183,22 @@ def get_args():
         action='store_true',
         help="Set to compile the model with `torch.compile`"
     )
+    parser.add_argument(
+        "--deepspeed",
+        action='store_true',
+        help="Use DeepSpeed for training"
+    )
+    parser.add_argument(
+        "--deepspeed_config",
+        type=str,
+        default="ds_config.json",
+        help="Path to DeepSpeed config file"
+    )
+    parser.add_argument(
+        "--local_rank",
+        type=int,
+        default=-1,
+        help="DeepSpeed/DDP local rank (set automatically)"
+    )
     args = parser.parse_args()
     return args
