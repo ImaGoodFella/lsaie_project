@@ -1,0 +1,7 @@
+image = "/iopsstor/scratch/cscs/${USER}/images/lsaie_project.sqsh"
+mounts = ["/iopsstor/scratch/cscs/${USER}:/iopsstor/scratch/cscs/${USER}:rw", "/users/${USER}/.cache/huggingface:/users/${USER}/.cache/huggingface:rw", "/users/${USER}/LSAIE-Project:/users/${USER}/LSAIE-Project:rw", "/capstor:/capstor:r"]
+workdir = "/users/${USER}"
+
+[annotations]
+com.hooks.aws_ofi_nccl.enabled = "true"
+com.hooks.aws_ofi_nccl.variant = "cuda12"
