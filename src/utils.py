@@ -183,5 +183,19 @@ def get_args():
         action='store_true',
         help="Set to compile the model with `torch.compile`"
     )
+
+    parser.add_argument(
+        "--deepspeed",
+        action='store_true',
+        help="If set, use DeepSpeed",
+    )
+
+    parser.add_argument(
+        "--deepspeed-config",
+        type=str,
+        default="deepspeed_config.json",
+        help="Path to DeepSpeed config file",
+    )
+
     args = parser.parse_args()
     return args
