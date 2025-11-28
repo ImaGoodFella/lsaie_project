@@ -21,7 +21,8 @@ RUN pip install \
 	jupyter \
 	deepspeed \
 	seaborn \
-	deepspeed
+	deepspeed \
+	bitsandbytes
 
 # Create a work directory
 RUN mkdir -p /workspace

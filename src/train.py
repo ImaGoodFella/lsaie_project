@@ -24,6 +24,8 @@ from utils import (
     set_default_dtype,
 )
 
+import bitsandbytes as bnb  
+
 
 def train(args):
     logger.info(f"Experiment args: {args}")
@@ -65,7 +67,7 @@ def train(args):
     # Set up Model
     logger.info("Setting up Model...")
     model_config = TransformerModelArgs(
-        dim=4096,
+        dim=2048,
         n_layers=32,
         n_heads=32,
         n_kv_heads=8,
@@ -81,6 +83,12 @@ def train(args):
     # --- MODEL, OPTIMIZER, SCHEDULER SETUP --- DeepSpeed
     if args.deepspeed:
         logger.info("Using DeepSpeed")
+        
+        quantized_optimizer = bnb.optim.AdamW8bit(
+            model.parameters(),
+            lr=args.learning_rate,
+            betas=(0.9, 0.95),
+        )
 
         # Load and update config with runtime args
         with open(args.deepspeed_config, "r") as f:
@@ -88,7 +96,7 @@ def train(args):
 
         ds_config["train_micro_batch_size_per_gpu"] = args.batch_size
         ds_config["train_batch_size"] = args.batch_size * world_size
-        ds_config["optimizer"]["params"]["lr"] = args.learning_rate
+        # ds_config["optimizer"]["params"]["lr"] = args.learning_rate
         ds_config["scheduler"]["params"]["warmup_max_lr"] = args.learning_rate
         ds_config["scheduler"]["params"]["warmup_num_steps"] = args.lr_warmup_steps
         ds_config["gradient_clipping"] = args.grad_max_norm
@@ -103,8 +111,8 @@ def train(args):
         if args.compile:
             logger.warning("torch.compile is not used when DeepSpeed is enabled.")
 
-        model_engine, optimizer, _, lr_scheduler = deepspeed.initialize(
-            model=model, config=ds_config, model_parameters=model.parameters()
+        model_engine, optimizer, _, lr_scheduler = deepspeed.initialize( 
+            model=model, config=ds_config, model_parameters=model.parameters(), optimizer=quantized_optimizer
         )
         # model_engine handles device placement
     else:

@@ -34,6 +34,8 @@ ASSIGNMENT_DIR="/users/$USER/LSAIE-Project"
 
 CMD_PREFIX="numactl --membind=0-3"
 
+EXPORTS="export NCCL_IB_DISABLE=1; export NCCL_NET_GDR_LEVEL=0; export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK; export HF_HUB_ENABLE_HF_TRANSFER=0;"
+
 TRAINING_CMD="python3 -m torch.distributed.run \
     --standalone \
     --nproc_per_node=4 \
@@ -47,6 +49,6 @@ TRAINING_CMD="python3 -m torch.distributed.run \
     --deepspeed-config $ASSIGNMENT_DIR/configs/deepspeed/stage${STAGE}.json \
     "
 
-srun --cpus-per-task=$SLURM_CPUS_PER_TASK bash -c "$CMD_PREFIX $TRAINING_CMD"
+srun --cpus-per-task=$SLURM_CPUS_PER_TASK bash -c "$EXPORTS $CMD_PREFIX $TRAINING_CMD"
 
 echo "END TIME: $(date)"
