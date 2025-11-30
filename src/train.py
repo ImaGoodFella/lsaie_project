@@ -103,8 +103,9 @@ def train(args):
         if args.compile:
             logger.warning("torch.compile is not used when DeepSpeed is enabled.")
 
+        # When optimizer is defined in config, don't pass model_parameters
         model_engine, optimizer, _, lr_scheduler = deepspeed.initialize(
-            model=model, config=ds_config, model_parameters=model.parameters()
+            model=model, config=ds_config
         )
         # model_engine handles device placement
     else:

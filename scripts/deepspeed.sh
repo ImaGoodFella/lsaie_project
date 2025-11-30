@@ -11,9 +11,9 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-node=4
-#SBATCH --cpus-per-task=72
+#SBATCH --cpus-per-task=288
 #SBATCH --mem=460000
-#SBATCH --environment=/users/rasteiger/LSAIE-Project/docker/lsaie_project.toml
+#SBATCH --environment=/users/rasteiger/LSAIE-Project/docker/lsaie_project_debug.toml
 #SBATCH --no-requeue	# Prevent Slurm to requeue the job if the execution crashes (e.g. node failure) so we don't loose the logs
 
 # Get stage from environment variable, default to 0
@@ -26,7 +26,7 @@ echo "Output will be in: logs/deepspeed/$SLURM_JOB_ID.out"
 
 # Create a symlink with stage info for easier identification
 LOG_DIR="/users/$USER/LSAIE-Project/scripts/logs/deepspeed"
-ln -sf "$LOG_DIR/$SLURM_JOB_ID.out" "$LOG_DIR/stage${STAGE}_latest.out"
+ln -sf "$LOG_DIR/$SLURM_JOB_ID.out" "$LOG_DIR/stage_${STAGE}_latest.out"
 
 # Set up ENV
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -44,7 +44,7 @@ TRAINING_CMD="python3 -m torch.distributed.run \
     --training-steps 1000 \
     --sequence-length 2048 \
     --deepspeed \
-    --deepspeed-config $ASSIGNMENT_DIR/configs/deepspeed/stage${STAGE}.json \
+    --deepspeed-config $ASSIGNMENT_DIR/configs/deepspeed/stage_${STAGE}.json \
     "
 
 srun --cpus-per-task=$SLURM_CPUS_PER_TASK bash -c "$CMD_PREFIX $TRAINING_CMD"
