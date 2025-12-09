@@ -5,7 +5,7 @@
 # Or set default: sbatch deepspeed.sh (uses stage 0)
 
 #SBATCH --account=a-infra02
-#SBATCH --time=00:07:59
+#SBATCH --time=00:09:59
 #SBATCH --job-name=lsai
 #SBATCH --output=/users/%u/LSAIE-Project/scripts/logs/deepspeed/%j.out
 #SBATCH --nodes=1
