@@ -12,9 +12,7 @@
       "weight_decay": 0.01
     }
   },
-
-  "torch_adam": true,
-
+  
   "scheduler": {
     "type": "WarmupLR",
     "params": {

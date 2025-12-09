@@ -14,8 +14,6 @@
     }
   },
 
-  "torch_adam": true,
-
   "scheduler": {
     "type": "WarmupLR",
     "params": {
