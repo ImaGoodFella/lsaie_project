@@ -192,9 +192,17 @@ def get_args():
 
     parser.add_argument(
         "--deepspeed-config",
+        "--deepspeed_config",
         type=str,
         default="deepspeed_config.json",
         help="Path to DeepSpeed config file",
+    )
+
+    parser.add_argument(
+        "--local_rank",
+        type=int,
+        default=-1,
+        help="Local rank passed from distributed launcher",
     )
 
     args = parser.parse_args()

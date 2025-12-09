@@ -51,17 +51,6 @@ def train(args):
     )
     train_collator = CollatorForCLM(args.sequence_length, tokenizer.pad_token_id)
 
-    # --- SAMPLER FOR DISTRIBUTED TRAINING ---
-    train_sampler = DistributedSampler(train_ds) if args.deepspeed else None
-    train_dl = DataLoader(
-        train_ds,
-        batch_size=args.batch_size,
-        collate_fn=train_collator,
-        sampler=train_sampler,
-    )  # <-- ADD SAMPLER
-
-    train_dl_iterator = iter(train_dl)
-
     # Set up Model
     logger.info("Setting up Model...")
     model_config = TransformerModelArgs(
@@ -82,32 +71,23 @@ def train(args):
     if args.deepspeed:
         logger.info("Using DeepSpeed")
 
-        # Load and update config with runtime args
-        with open(args.deepspeed_config, "r") as f:
-            ds_config = json.load(f)
-
-        ds_config["train_micro_batch_size_per_gpu"] = args.batch_size
-        ds_config["train_batch_size"] = args.batch_size * world_size
-        ds_config["optimizer"]["params"]["lr"] = args.learning_rate
-        ds_config["scheduler"]["params"]["warmup_max_lr"] = args.learning_rate
-        ds_config["scheduler"]["params"]["warmup_num_steps"] = args.lr_warmup_steps
-        ds_config["gradient_clipping"] = args.grad_max_norm
-
-        if args.model_dtype == "bf16":
-            ds_config["bf16"] = {"enabled": True}
-        elif args.model_dtype == "fp16":
-            ds_config["fp16"] = {"enabled": True}
-            ds_config.pop("bf16", None)
-
-        # Note: torch.compile is not compatible with ZeRO-2/3 yet.
-        if args.compile:
-            logger.warning("torch.compile is not used when DeepSpeed is enabled.")
-
-        # When optimizer is defined in config, don't pass model_parameters
-        model_engine, optimizer, _, lr_scheduler = deepspeed.initialize(
-            model=model, config=ds_config
+        # Create optimizer like finetune_zero3.py
+        from deepspeed.ops.adam import DeepSpeedCPUAdam
+        optimizer = DeepSpeedCPUAdam(
+            model.parameters(), 
+            lr=0.001,  # Default optimizer LR
+            betas=(0.9, 0.999)
         )
-        # model_engine handles device placement
+
+        # Initialize DeepSpeed - use args parameter like finetune_zero3.py
+        model_engine, optimizer, train_dl, _ = deepspeed.initialize(
+            args=args,
+            model=model,
+            optimizer=optimizer,
+            training_data=train_ds,
+            collate_fn=train_collator
+        )
+        train_dl_iterator = iter(train_dl)
     else:
         logger.info("Using native PyTorch")
 
@@ -122,7 +102,7 @@ def train(args):
         )
         lr_scheduler = build_lr_scheduler(optimizer, args.lr_warmup_steps)
 
-    model.train()
+    model_engine.train() if args.deepspeed else model.train()
 
     # Utils
     num_flop_per_token = get_num_flop_per_token(
@@ -150,23 +130,23 @@ def train(args):
             torch.cuda.cudart().cudaProfilerStart()
             torch.autograd.profiler.emit_nvtx(record_shapes=True).__enter__()
 
-        input_ids, labels = next(train_dl_iterator)
-        ntokens_since_last_log += args.batch_size * args.sequence_length * world_size
-        num_items_in_batch = labels.ne(-100).sum()
-        ntraining_tokens_since_last_log += num_items_in_batch * world_size
-
-        input_ids = input_ids.to(device)
-        labels = labels.to(device)
-
         # --- FOR DEEPSPEED ---
         if args.deepspeed:
+            batch = next(train_dl_iterator)
+            input_ids = batch[0].to(model_engine.device)
+            labels = batch[1].to(model_engine.device)
+            
+            actual_batch_size = input_ids.shape[0]
+            ntokens_since_last_log += actual_batch_size * args.sequence_length * world_size
+            num_items_in_batch = labels.ne(-100).sum()
+            ntraining_tokens_since_last_log += num_items_in_batch * world_size
 
             # Forward pass
             logits = model_engine(input_ids)
             loss = torch.nn.functional.cross_entropy(
                 logits.flatten(0, 1).float(), labels.flatten(0, 1), reduction="sum"
             )
-            loss = loss / num_items_in_batch
+            loss = loss / actual_batch_size
             del logits
 
             # Backpropagation
@@ -177,6 +157,13 @@ def train(args):
 
         # --- FOR NATIVE Pytorch ---
         else:
+            input_ids, labels = next(train_dl_iterator)
+            ntokens_since_last_log += args.batch_size * args.sequence_length * world_size
+            num_items_in_batch = labels.ne(-100).sum()
+            ntraining_tokens_since_last_log += num_items_in_batch * world_size
+
+            input_ids = input_ids.to(device)
+            labels = labels.to(device)
             optimizer.zero_grad()
 
             # Forward pass

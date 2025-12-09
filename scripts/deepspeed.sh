@@ -34,17 +34,15 @@ ASSIGNMENT_DIR="/users/$USER/LSAIE-Project"
 
 CMD_PREFIX="numactl --membind=0-3"
 
-TRAINING_CMD="python3 -m torch.distributed.run \
-    --standalone \
-    --nproc_per_node=4 \
+TRAINING_CMD="deepspeed --num_gpus=4 --bind_cores_to_rank \
     $ASSIGNMENT_DIR/src/train.py \
+    --deepspeed_config $ASSIGNMENT_DIR/configs/deepspeed/stage_${STAGE}.json \
     --batch-size 1 \
     --learning-rate 5e-5 \
     --lr-warmup-steps 100 \
     --training-steps 1000 \
     --sequence-length 2048 \
-    --deepspeed \
-    --deepspeed-config $ASSIGNMENT_DIR/configs/deepspeed/stage_${STAGE}.json \
+    --deepspeed
     "
 
 srun --cpus-per-task=$SLURM_CPUS_PER_TASK bash -c "$CMD_PREFIX $TRAINING_CMD"
