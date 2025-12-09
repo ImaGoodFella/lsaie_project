@@ -71,13 +71,27 @@ def train(args):
     if args.deepspeed:
         logger.info("Using DeepSpeed")
 
-        # Create optimizer like finetune_zero3.py
-        from deepspeed.ops.adam import DeepSpeedCPUAdam
-        optimizer = DeepSpeedCPUAdam(
-            model.parameters(), 
-            lr=0.001,  # Default optimizer LR
-            betas=(0.9, 0.999)
-        )
+        # Load DeepSpeed config to check optimizer settings
+        with open(args.deepspeed_config, 'r') as f:
+            ds_config_dict = json.load(f)
+        
+        # Check if optimizer offload to CPU is enabled
+        zero_config = ds_config_dict.get('zero_optimization', {})
+        offload_optimizer = zero_config.get('offload_optimizer', {})
+        optimizer_offload_enabled = offload_optimizer.get('device') == 'cpu'
+        
+        # Use DeepSpeedCPUAdam if optimizer offload is enabled, else let DeepSpeed create it
+        if optimizer_offload_enabled:
+            logger.info("Using DeepSpeedCPUAdam (optimizer offload to CPU enabled)")
+            from deepspeed.ops.adam import DeepSpeedCPUAdam
+            optimizer = DeepSpeedCPUAdam(
+                model.parameters(), 
+                lr=0.001,  # Default optimizer LR
+                betas=(0.9, 0.999)
+            )
+        else:
+            logger.info("Letting DeepSpeed create optimizer from config")
+            optimizer = None
 
         # Initialize DeepSpeed - use args parameter like finetune_zero3.py
         model_engine, optimizer, train_dl, _ = deepspeed.initialize(
@@ -87,6 +101,12 @@ def train(args):
             training_data=train_ds,
             collate_fn=train_collator
         )
+
+        # Enable DeepCompile if specified in config
+        if ds_config_dict.get('compile', {}).get('deepcompile', False):
+            logger.info("Enabling DeepCompile (compile.deepcompile=true in config)")
+            model_engine.compile()
+
         train_dl_iterator = iter(train_dl)
     else:
         logger.info("Using native PyTorch")
@@ -146,7 +166,7 @@ def train(args):
             loss = torch.nn.functional.cross_entropy(
                 logits.flatten(0, 1).float(), labels.flatten(0, 1), reduction="sum"
             )
-            loss = loss / actual_batch_size
+            loss = loss / num_items_in_batch
             del logits
 
             # Backpropagation

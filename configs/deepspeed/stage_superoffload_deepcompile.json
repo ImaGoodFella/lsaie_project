@@ -37,13 +37,17 @@
     "offload_optimizer": {
       "device": "cpu",
       "pin_memory": true,
-      "ratio": 0.80,
+      "cpuadam_cores_perc": 0.90,
       "super_offload": true,
-      "cpuadam_cores_perc": 0.90
+      "ratio": 0.80
     }
   },
 
   "gradient_clipping": 1.0,
+
+  "compile": {
+    "deepcompile": true
+  },
   
   "flops_profiler": {
     "enabled": false,
