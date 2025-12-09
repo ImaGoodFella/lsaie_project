@@ -31,7 +31,8 @@
   
   "zero_optimization": {
     "stage": 3,
-    "overlap_comm": false,
+    "contiguous_gradients": true,
+    "overlap_comm": true,
     "reduce_bucket_size": 4e8,
     "sub_group_size": 4e8,
     "offload_optimizer": {
@@ -44,10 +45,6 @@
   },
 
   "gradient_clipping": 0.0,
-
-  "compile": {
-    "deepcompile": true
-  },
   
   "flops_profiler": {
     "enabled": false,
