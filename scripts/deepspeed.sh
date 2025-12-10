@@ -12,7 +12,6 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-node=4
 #SBATCH --cpus-per-task=288
-#SBATCH --mem=460000
 #SBATCH --environment=/users/rasteiger/LSAIE-Project/docker/lsaie_project_debug.toml
 #SBATCH --no-requeue	# Prevent Slurm to requeue the job if the execution crashes (e.g. node failure) so we don't loose the logs
 
@@ -34,7 +33,7 @@ ASSIGNMENT_DIR="/users/$USER/LSAIE-Project"
 
 CMD_PREFIX="numactl --membind=0-3"
 
-TRAINING_CMD="deepspeed --num_gpus=4 --bind_cores_to_rank \
+TRAINING_CMD="deepspeed --num_gpus=1 --bind_cores_to_rank \
     $ASSIGNMENT_DIR/src/train.py \
     --deepspeed_config $ASSIGNMENT_DIR/configs/deepspeed/stage_${STAGE}.json \
     --batch-size 1 \
@@ -42,8 +41,7 @@ TRAINING_CMD="deepspeed --num_gpus=4 --bind_cores_to_rank \
     --lr-warmup-steps 100 \
     --training-steps 1000 \
     --sequence-length 2048 \
-    --deepspeed
-    "
+    --deepspeed"
 
 srun --cpus-per-task=$SLURM_CPUS_PER_TASK bash -c "$CMD_PREFIX $TRAINING_CMD"
 
