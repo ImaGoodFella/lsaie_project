@@ -67,6 +67,13 @@ def train(args):
     with set_default_dtype(model_dtype):
         model = Transformer(model_config)
 
+    # Calculate num_params BEFORE DeepSpeed initialization
+    # (Stage 3 shards parameters, so counting after init would give 1/world_size of actual params)
+    num_params = get_num_params(model, exclude_embedding=True)
+    num_flop_per_token = get_num_flop_per_token(num_params, model_config)
+    logger.info(f"Model parameters (excluding embedding): {num_params:,}")
+    logger.info(f"FLOPs per token: {num_flop_per_token:,}")
+
     # --- MODEL, OPTIMIZER, SCHEDULER SETUP --- DeepSpeed
     if args.deepspeed:
         logger.info("Using DeepSpeed")
@@ -123,12 +130,6 @@ def train(args):
         lr_scheduler = build_lr_scheduler(optimizer, args.lr_warmup_steps)
 
     model_engine.train() if args.deepspeed else model.train()
-
-    # Utils
-    num_flop_per_token = get_num_flop_per_token(
-        get_num_params(model, exclude_embedding=True),
-        model_config,
-    )
 
     ntokens_since_last_log = 0
     ntraining_tokens_since_last_log = 0
