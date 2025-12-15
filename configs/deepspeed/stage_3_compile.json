@@ -27,7 +27,7 @@
   },
 
   "compile": {
-    "deepcompile": true
+    "deepcompile": false
   },
   
   "zero_optimization": {

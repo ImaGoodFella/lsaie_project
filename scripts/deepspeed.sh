@@ -33,7 +33,7 @@ ASSIGNMENT_DIR="/users/$USER/LSAIE-Project"
 
 CMD_PREFIX="numactl --membind=0-3"
 
-TRAINING_CMD="deepspeed --num_gpus=1 --bind_cores_to_rank \
+TRAINING_CMD="deepspeed --num_gpus=4 --bind_cores_to_rank \
     $ASSIGNMENT_DIR/src/train.py \
     --deepspeed_config $ASSIGNMENT_DIR/configs/deepspeed/stage_${STAGE}.json \
     --batch-size 1 \

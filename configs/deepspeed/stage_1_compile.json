@@ -27,11 +27,11 @@
   },
 
   "compile": {
-    "deepcompile": true
+    "deepcompile": false
   },
   
   "zero_optimization": {
-    "stage": 3,
+    "stage": 1,
     "contiguous_gradients": true,
     "overlap_comm": true
   },

@@ -25,18 +25,25 @@
   "bf16": {
     "enabled": true
   },
-
-  "compile": {
-    "deepcompile": true
-  },
   
   "zero_optimization": {
     "stage": 3,
     "contiguous_gradients": true,
-    "overlap_comm": true
+    "overlap_comm": true,
+    "reduce_bucket_size": 4e8,
+    "sub_group_size": 4e8,
+    "offload_optimizer": {
+      "device": "cpu",
+      "pin_memory": true,
+      "cpuadam_cores_perc": 0.90
+    }
   },
-  
-  "gradient_clipping": 1.0,
+
+  "compile": {
+    "deepcompile": false
+  },
+
+  "gradient_clipping": 0.0,
   
   "flops_profiler": {
     "enabled": false,

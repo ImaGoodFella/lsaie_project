@@ -1,6 +1,6 @@
 {
   "train_micro_batch_size_per_gpu": 1,
-  "train_batch_size": 1,
+  "train_batch_size": 4,
   "gradient_accumulation_steps": 1,
   
   "optimizer": {
@@ -41,7 +41,7 @@
     }
   },
 
-  "gradient_clipping": 1.0,
+  "gradient_clipping": 0.0,
   
   "flops_profiler": {
     "enabled": false,

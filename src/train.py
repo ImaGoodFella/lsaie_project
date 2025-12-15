@@ -103,8 +103,8 @@ def train(args):
         )
 
         # Enable DeepCompile if specified in config
-        if ds_config_dict.get('compile', {}).get('deepcompile', False):
-            logger.info("Enabling DeepCompile (compile.deepcompile=true in config)")
+        if 'compile' in ds_config_dict:
+            logger.info("Enabling Compile in DeepSpeed")
             model_engine.compile()
 
         train_dl_iterator = iter(train_dl)
