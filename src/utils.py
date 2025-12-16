@@ -26,8 +26,11 @@ def init_logger():
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
-def get_num_params(model: torch.nn.Module, exclude_embedding: bool = False) -> int:
-    num_params = sum(p.numel() for p in model.parameters())
+def get_num_params(model: torch.nn.Module, exclude_embedding: bool = False, is_deepspeed=False) -> int:
+    if is_deepspeed:
+        num_params = sum(p.ds_numel for p in model.parameters())
+    else:
+        num_params = sum(p.numel() for p in model.parameters())
     if exclude_embedding:
         num_params -= sum(
             sum(p.numel() for p in m.parameters())

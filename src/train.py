@@ -64,12 +64,28 @@ def train(args):
         vocab_size=tokenizer.vocab_size,
         seq_len=args.sequence_length,
     )
-    with set_default_dtype(model_dtype):
-        model = Transformer(model_config)
+
+    if args.deepspeed:
+        # Load DeepSpeed config to check ZeRO settings
+        with open(args.deepspeed_config, 'r') as f:
+            ds_config_dict = json.load(f)
+    else:
+        ds_config_dict = {}
+
+    zero_stage = ds_config_dict.get('zero_optimization', {}).get('stage', 0)
+    # Only use zero.Init for Stage 3
+    if args.deepspeed and zero_stage == 3:
+        logger.info("Using ZeRO Stage 3 partition-at-init")
+        with deepspeed.zero.Init(config_dict_or_path=ds_config_dict):
+            with set_default_dtype(model_dtype):
+                model = Transformer(model_config)
+    else:
+        with set_default_dtype(model_dtype):
+            model = Transformer(model_config)
 
     # Calculate num_params BEFORE DeepSpeed initialization
     # (Stage 3 shards parameters, so counting after init would give 1/world_size of actual params)
-    num_params = get_num_params(model, exclude_embedding=True)
+    num_params = get_num_params(model, exclude_embedding=True, is_deepspeed=args.deepspeed)
     num_flop_per_token = get_num_flop_per_token(num_params, model_config)
     logger.info(f"Model parameters (excluding embedding): {num_params:,}")
     logger.info(f"FLOPs per token: {num_flop_per_token:,}")
