@@ -85,7 +85,7 @@ def train(args):
 
     # Calculate num_params BEFORE DeepSpeed initialization
     # (Stage 3 shards parameters, so counting after init would give 1/world_size of actual params)
-    num_params = get_num_params(model, exclude_embedding=True, is_deepspeed=args.deepspeed)
+    num_params = get_num_params(model, exclude_embedding=True, is_partitioned=zero_stage == 3)
     num_flop_per_token = get_num_flop_per_token(num_params, model_config)
     logger.info(f"Model parameters (excluding embedding): {num_params:,}")
     logger.info(f"FLOPs per token: {num_flop_per_token:,}")
