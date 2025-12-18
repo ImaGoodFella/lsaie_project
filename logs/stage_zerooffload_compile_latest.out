@@ -1,0 +1,637 @@
+START TIME: Wed Dec 17 17:45:31 CET 2025
+Running DeepSpeed Stage: zerooffload_compile
+Job ID: 1254477
+Output will be in: logs/deepspeed/1254477.out
+df: /users/bzuidema/.triton/autotune: No such file or directory
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[2025-12-17 17:45:54,961] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2025-12-17 17:45:54,961] [INFO] [runner.py:630:main] cmd = /usr/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None --bind_cores_to_rank --log_level=info /users/bzuidema/scratch/project/src/train.py --deepspeed_config /users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json --batch-size 1 --learning-rate 5e-5 --lr-warmup-steps 100 --training-steps 1000 --sequence-length 2048 --deepspeed
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_NET_PLUGIN=ofi
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_VERSION=2.25.1
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_SOCKET_IFNAME=hsn
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_NVLS_ENABLE=0
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_NET_GDR_LEVEL=PHB
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 TORCH_NCCL_USE_COMM_NONBLOCKING=0
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_NET=AWS Libfabric
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 AWS_OFI_NCCL_VERSION=1.12.1
+[2025-12-17 17:46:01,466] [INFO] [launch.py:155:main] 0 NCCL_CROSS_NIC=1
+[2025-12-17 17:46:01,466] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2025-12-17 17:46:01,466] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=4, node_rank=0
+[2025-12-17 17:46:01,466] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2025-12-17 17:46:01,466] [INFO] [launch.py:180:main] dist_world_size=4
+[2025-12-17 17:46:01,466] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2025-12-17 17:46:01,490] [INFO] [launch.py:272:main] process 53484 spawned with command: ['numactl', '-m', '0', '-C', '0-71', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=0', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:46:01,505] [INFO] [launch.py:272:main] process 53488 spawned with command: ['numactl', '-m', '1', '-C', '72-143', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=1', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:46:01,520] [INFO] [launch.py:272:main] process 53491 spawned with command: ['numactl', '-m', '2', '-C', '144-215', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=2', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:46:01,536] [INFO] [launch.py:272:main] process 53494 spawned with command: ['numactl', '-m', '3', '-C', '216-287', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=3', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+2025-12-17 17:46:11,205 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', local_rank=1)
+2025-12-17 17:46:11,559 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', local_rank=2)
+2025-12-17 17:46:11,559 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', local_rank=3)
+2025-12-17 17:46:11,566 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_zerooffload_compile.json', local_rank=0)
+2025-12-17 17:46:17,374 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:46:17,374 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:46:17,374 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:46:17,377 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:46:20,356 - root - INFO - Setting up Model...
+2025-12-17 17:46:20,356 - root - INFO - Setting up Model...
+2025-12-17 17:46:20,356 - root - INFO - Setting up Model...
+2025-12-17 17:46:20,356 - root - INFO - Setting up Model...
+2025-12-17 17:46:20,359 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:46:20,359 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:46:20,359 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:46:20,359 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:46:25,822 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:25,823 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:25,823 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:25,823 - root - INFO - Using DeepSpeedCPUAdam (optimizer offload to CPU enabled)
+2025-12-17 17:46:25,824 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:25,824 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:25,824 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:25,824 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:25,824 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:25,824 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:25,825 - root - INFO - Using DeepSpeedCPUAdam (optimizer offload to CPU enabled)
+2025-12-17 17:46:25,825 - root - INFO - Using DeepSpeedCPUAdam (optimizer offload to CPU enabled)
+2025-12-17 17:46:25,828 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:25,828 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:25,828 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:25,828 - root - INFO - Using DeepSpeedCPUAdam (optimizer offload to CPU enabled)
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2011: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Stage 3 initialize beginning
+MA 3.75 GB         Max_MA 4.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 167.3 GB, percent = 19.6%
+DeepSpeedZeRoOffload initialize [begin]
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 167.31 GB, percent = 19.6%
+Parameter Offload - Persistent parameters statistics: param_count = 65, numel = 266240
+DeepSpeedZeRoOffload initialize [end]
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 167.31 GB, percent = 19.6%
+Before creating fp16 partitions
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 167.31 GB, percent = 19.6%
+After creating fp16 partitions: 5
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 166.04 GB, percent = 19.4%
+Before creating fp32 partitions
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 4 GB 
+CPU Virtual Memory:  used = 166.13 GB, percent = 19.4%
+After creating fp32 partitions
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 4 GB 
+CPU Virtual Memory:  used = 279.77 GB, percent = 32.7%
+Before initializing optimizer states
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 4 GB 
+CPU Virtual Memory:  used = 333.75 GB, percent = 39.1%
+After initializing optimizer states
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 4 GB 
+CPU Virtual Memory:  used = 259.75 GB, percent = 30.4%
+[2025-12-17 17:46:55,726] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:55,727 - root - INFO - Enabling Compile in DeepSpeed
+[2025-12-17 17:46:55,728] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:55,728 - root - INFO - Enabling Compile in DeepSpeed
+[2025-12-17 17:46:55,731] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:55,731 - root - INFO - Enabling Compile in DeepSpeed
+2025-12-17 17:46:55,778 - root - INFO - Starting training!
+2025-12-17 17:46:55,780 - root - INFO - Starting training!
+2025-12-17 17:46:55,786 - root - INFO - Starting training!
+After initializing ZeRO optimizer
+MA 4.5 GB         Max_MA 6.5 GB         CA 6.5 GB         Max_CA 6 GB 
+CPU Virtual Memory:  used = 254.47 GB, percent = 29.8%
+[2025-12-17 17:46:55,826] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:55,827 - root - INFO - Enabling Compile in DeepSpeed
+2025-12-17 17:46:55,893 - root - INFO - Starting training!
+[rank2]:W1217 17:46:58.446000 53491 torch/_dynamo/convert_frame.py:915] [2/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:46:58.446000 53491 torch/_dynamo/convert_frame.py:915] [2/8]    function: 'torch_dynamo_resume_in__forward_prologue_at_2187' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2187)
+[rank2]:W1217 17:46:58.446000 53491 torch/_dynamo/convert_frame.py:915] [2/8]    last reason: 2/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank2]:W1217 17:46:58.446000 53491 torch/_dynamo/convert_frame.py:915] [2/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:46:58.446000 53491 torch/_dynamo/convert_frame.py:915] [2/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank1]:W1217 17:46:58.487000 53488 torch/_dynamo/convert_frame.py:915] [2/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:46:58.487000 53488 torch/_dynamo/convert_frame.py:915] [2/8]    function: 'torch_dynamo_resume_in__forward_prologue_at_2187' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2187)
+[rank1]:W1217 17:46:58.487000 53488 torch/_dynamo/convert_frame.py:915] [2/8]    last reason: 2/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank1]:W1217 17:46:58.487000 53488 torch/_dynamo/convert_frame.py:915] [2/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:46:58.487000 53488 torch/_dynamo/convert_frame.py:915] [2/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:46:58.491000 53494 torch/_dynamo/convert_frame.py:915] [2/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:46:58.491000 53494 torch/_dynamo/convert_frame.py:915] [2/8]    function: 'torch_dynamo_resume_in__forward_prologue_at_2187' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2187)
+[rank3]:W1217 17:46:58.491000 53494 torch/_dynamo/convert_frame.py:915] [2/8]    last reason: 2/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank3]:W1217 17:46:58.491000 53494 torch/_dynamo/convert_frame.py:915] [2/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:46:58.491000 53494 torch/_dynamo/convert_frame.py:915] [2/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank0]:W1217 17:46:58.537000 53484 torch/_dynamo/convert_frame.py:915] [2/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:46:58.537000 53484 torch/_dynamo/convert_frame.py:915] [2/8]    function: 'torch_dynamo_resume_in__forward_prologue_at_2187' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2187)
+[rank0]:W1217 17:46:58.537000 53484 torch/_dynamo/convert_frame.py:915] [2/8]    last reason: 2/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank0]:W1217 17:46:58.537000 53484 torch/_dynamo/convert_frame.py:915] [2/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:46:58.537000 53484 torch/_dynamo/convert_frame.py:915] [2/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+[rank1]:W1217 17:47:07.913000 53488 torch/_dynamo/convert_frame.py:915] [7/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:47:07.913000 53488 torch/_dynamo/convert_frame.py:915] [7/8]    function: 'post_sub_module_forward_function' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:484)
+[rank1]:W1217 17:47:07.913000 53488 torch/_dynamo/convert_frame.py:915] [7/8]    last reason: 7/0: ___check_type_id(L['sub_module'], 226113200)                
+[rank1]:W1217 17:47:07.913000 53488 torch/_dynamo/convert_frame.py:915] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:47:07.913000 53488 torch/_dynamo/convert_frame.py:915] [7/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank1]:W1217 17:47:07.916000 53488 torch/_dynamo/convert_frame.py:915] [17/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:47:07.916000 53488 torch/_dynamo/convert_frame.py:915] [17/8]    function: '_pre_backward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:350)
+[rank1]:W1217 17:47:07.916000 53488 torch/_dynamo/convert_frame.py:915] [17/8]    last reason: 17/0: ___check_type_id(L['module'], 226113200)                    
+[rank1]:W1217 17:47:07.916000 53488 torch/_dynamo/convert_frame.py:915] [17/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:47:07.916000 53488 torch/_dynamo/convert_frame.py:915] [17/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+[rank2]:W1217 17:47:07.979000 53491 torch/_dynamo/convert_frame.py:915] [7/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:47:07.979000 53491 torch/_dynamo/convert_frame.py:915] [7/8]    function: 'post_sub_module_forward_function' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:484)
+[rank2]:W1217 17:47:07.979000 53491 torch/_dynamo/convert_frame.py:915] [7/8]    last reason: 7/0: ___check_type_id(L['sub_module'], 1002190512)               
+[rank2]:W1217 17:47:07.979000 53491 torch/_dynamo/convert_frame.py:915] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:47:07.979000 53491 torch/_dynamo/convert_frame.py:915] [7/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank2]:W1217 17:47:07.982000 53491 torch/_dynamo/convert_frame.py:915] [17/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:47:07.982000 53491 torch/_dynamo/convert_frame.py:915] [17/8]    function: '_pre_backward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:350)
+[rank2]:W1217 17:47:07.982000 53491 torch/_dynamo/convert_frame.py:915] [17/8]    last reason: 17/0: ___check_type_id(L['module'], 1002190512)                   
+[rank2]:W1217 17:47:07.982000 53491 torch/_dynamo/convert_frame.py:915] [17/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:47:07.982000 53491 torch/_dynamo/convert_frame.py:915] [17/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank0]:W1217 17:47:08.093000 53484 torch/_dynamo/convert_frame.py:915] [7/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:47:08.093000 53484 torch/_dynamo/convert_frame.py:915] [7/8]    function: 'post_sub_module_forward_function' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:484)
+[rank0]:W1217 17:47:08.093000 53484 torch/_dynamo/convert_frame.py:915] [7/8]    last reason: 7/0: ___check_type_id(L['sub_module'], 113587888)                
+[rank0]:W1217 17:47:08.093000 53484 torch/_dynamo/convert_frame.py:915] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:47:08.093000 53484 torch/_dynamo/convert_frame.py:915] [7/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank0]:W1217 17:47:08.096000 53484 torch/_dynamo/convert_frame.py:915] [17/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:47:08.096000 53484 torch/_dynamo/convert_frame.py:915] [17/8]    function: '_pre_backward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:350)
+[rank0]:W1217 17:47:08.096000 53484 torch/_dynamo/convert_frame.py:915] [17/8]    last reason: 17/0: ___check_type_id(L['module'], 113587888)                    
+[rank0]:W1217 17:47:08.096000 53484 torch/_dynamo/convert_frame.py:915] [17/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:47:08.096000 53484 torch/_dynamo/convert_frame.py:915] [17/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:47:08.105000 53494 torch/_dynamo/convert_frame.py:915] [7/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:47:08.105000 53494 torch/_dynamo/convert_frame.py:915] [7/8]    function: 'post_sub_module_forward_function' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:484)
+[rank3]:W1217 17:47:08.105000 53494 torch/_dynamo/convert_frame.py:915] [7/8]    last reason: 7/0: ___check_type_id(L['sub_module'], 177551024)                
+[rank3]:W1217 17:47:08.105000 53494 torch/_dynamo/convert_frame.py:915] [7/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:47:08.105000 53494 torch/_dynamo/convert_frame.py:915] [7/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:47:08.108000 53494 torch/_dynamo/convert_frame.py:915] [17/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:47:08.108000 53494 torch/_dynamo/convert_frame.py:915] [17/8]    function: '_pre_backward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:350)
+[rank3]:W1217 17:47:08.108000 53494 torch/_dynamo/convert_frame.py:915] [17/8]    last reason: 17/0: ___check_type_id(L['module'], 177551024)                    
+[rank3]:W1217 17:47:08.108000 53494 torch/_dynamo/convert_frame.py:915] [17/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:47:08.108000 53494 torch/_dynamo/convert_frame.py:915] [17/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+[rank0]:W1217 17:47:09.286000 53484 torch/_dynamo/convert_frame.py:915] [6/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:47:09.286000 53484 torch/_dynamo/convert_frame.py:915] [6/8]    function: '_post_forward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:302)
+[rank0]:W1217 17:47:09.286000 53484 torch/_dynamo/convert_frame.py:915] [6/8]    last reason: 6/0: ___check_type_id(L['module'], 113587888)                    
+[rank0]:W1217 17:47:09.286000 53484 torch/_dynamo/convert_frame.py:915] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:47:09.286000 53484 torch/_dynamo/convert_frame.py:915] [6/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank2]:W1217 17:47:09.286000 53491 torch/_dynamo/convert_frame.py:915] [6/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:47:09.286000 53491 torch/_dynamo/convert_frame.py:915] [6/8]    function: '_post_forward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:302)
+[rank2]:W1217 17:47:09.286000 53491 torch/_dynamo/convert_frame.py:915] [6/8]    last reason: 6/0: ___check_type_id(L['module'], 1002190512)                   
+[rank2]:W1217 17:47:09.286000 53491 torch/_dynamo/convert_frame.py:915] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:47:09.286000 53491 torch/_dynamo/convert_frame.py:915] [6/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank1]:W1217 17:47:09.287000 53488 torch/_dynamo/convert_frame.py:915] [6/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:47:09.287000 53488 torch/_dynamo/convert_frame.py:915] [6/8]    function: '_post_forward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:302)
+[rank1]:W1217 17:47:09.287000 53488 torch/_dynamo/convert_frame.py:915] [6/8]    last reason: 6/0: ___check_type_id(L['module'], 226113200)                    
+[rank1]:W1217 17:47:09.287000 53488 torch/_dynamo/convert_frame.py:915] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:47:09.287000 53488 torch/_dynamo/convert_frame.py:915] [6/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:47:09.288000 53494 torch/_dynamo/convert_frame.py:915] [6/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:47:09.288000 53494 torch/_dynamo/convert_frame.py:915] [6/8]    function: '_post_forward_module_hook' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/parameter_offload.py:302)
+[rank3]:W1217 17:47:09.288000 53494 torch/_dynamo/convert_frame.py:915] [6/8]    last reason: 6/0: ___check_type_id(L['module'], 177551024)                    
+[rank3]:W1217 17:47:09.288000 53494 torch/_dynamo/convert_frame.py:915] [6/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:47:09.288000 53494 torch/_dynamo/convert_frame.py:915] [6/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_dynamo/variables/misc.py:651: UserWarning: The config.capture_autograd_function flag is deprecated, it's now always true.
+  warnings.warn(
+[rank2]:W1217 17:47:12.244000 53491 torch/_dynamo/convert_frame.py:915] [39/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:47:12.244000 53491 torch/_dynamo/convert_frame.py:915] [39/8]    function: 'torch_dynamo_resume_in__forward_epilogue_at_2200' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2200)
+[rank2]:W1217 17:47:12.244000 53491 torch/_dynamo/convert_frame.py:915] [39/8]    last reason: 39/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank2]:W1217 17:47:12.244000 53491 torch/_dynamo/convert_frame.py:915] [39/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:47:12.244000 53491 torch/_dynamo/convert_frame.py:915] [39/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank0]:W1217 17:47:12.266000 53484 torch/_dynamo/convert_frame.py:915] [39/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:47:12.266000 53484 torch/_dynamo/convert_frame.py:915] [39/8]    function: 'torch_dynamo_resume_in__forward_epilogue_at_2200' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2200)
+[rank0]:W1217 17:47:12.266000 53484 torch/_dynamo/convert_frame.py:915] [39/8]    last reason: 39/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank0]:W1217 17:47:12.266000 53484 torch/_dynamo/convert_frame.py:915] [39/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:47:12.266000 53484 torch/_dynamo/convert_frame.py:915] [39/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank1]:W1217 17:47:12.289000 53488 torch/_dynamo/convert_frame.py:915] [39/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:47:12.289000 53488 torch/_dynamo/convert_frame.py:915] [39/8]    function: 'torch_dynamo_resume_in__forward_epilogue_at_2200' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2200)
+[rank1]:W1217 17:47:12.289000 53488 torch/_dynamo/convert_frame.py:915] [39/8]    last reason: 39/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank1]:W1217 17:47:12.289000 53488 torch/_dynamo/convert_frame.py:915] [39/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:47:12.289000 53488 torch/_dynamo/convert_frame.py:915] [39/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:47:12.306000 53494 torch/_dynamo/convert_frame.py:915] [39/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:47:12.306000 53494 torch/_dynamo/convert_frame.py:915] [39/8]    function: 'torch_dynamo_resume_in__forward_epilogue_at_2200' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/engine.py:2200)
+[rank3]:W1217 17:47:12.306000 53494 torch/_dynamo/convert_frame.py:915] [39/8]    last reason: 39/0: ___tuple_iterator_len(L['___stack0']) == 388                
+[rank3]:W1217 17:47:12.306000 53494 torch/_dynamo/convert_frame.py:915] [39/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:47:12.306000 53494 torch/_dynamo/convert_frame.py:915] [39/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+2025-12-17 17:47:22,047 - root - INFO - Step: 1 | Loss: 11.93 | Tokens per second: 313.23 | Training tokens per second (%): 8.84 | MFU (%): 0.41 | TFLOPs: 4.04 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 24.03 | Max Mem Allocated (GB): 20.52
+2025-12-17 17:47:22,047 - root - INFO - Step: 1 | Loss: 11.96 | Tokens per second: 311.86 | Training tokens per second (%): 35.25 | MFU (%): 0.41 | TFLOPs: 4.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 24.03 | Max Mem Allocated (GB): 20.52
+2025-12-17 17:47:22,047 - root - INFO - Step: 1 | Loss: 11.89 | Tokens per second: 311.88 | Training tokens per second (%): 6.40 | MFU (%): 0.41 | TFLOPs: 4.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 24.03 | Max Mem Allocated (GB): 20.52
+2025-12-17 17:47:22,047 - root - INFO - Step: 1 | Loss: 11.98 | Tokens per second: 311.95 | Training tokens per second (%): 28.12 | MFU (%): 0.41 | TFLOPs: 4.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 24.03 | Max Mem Allocated (GB): 20.52
+[rank2]:W1217 17:47:23.815000 53491 torch/_dynamo/convert_frame.py:915] [18/8] torch._dynamo hit config.cache_size_limit (8)
+[rank2]:W1217 17:47:23.815000 53491 torch/_dynamo/convert_frame.py:915] [18/8]    function: 'apply_to_tensors_only' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/utils.py:146)
+[rank2]:W1217 17:47:23.815000 53491 torch/_dynamo/convert_frame.py:915] [18/8]    last reason: 18/7: Cache line invalidated because L['function'] got deallocated
+[rank2]:W1217 17:47:23.815000 53491 torch/_dynamo/convert_frame.py:915] [18/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank2]:W1217 17:47:23.815000 53491 torch/_dynamo/convert_frame.py:915] [18/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank0]:W1217 17:47:23.817000 53484 torch/_dynamo/convert_frame.py:915] [18/8] torch._dynamo hit config.cache_size_limit (8)
+[rank0]:W1217 17:47:23.817000 53484 torch/_dynamo/convert_frame.py:915] [18/8]    function: 'apply_to_tensors_only' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/utils.py:146)
+[rank0]:W1217 17:47:23.817000 53484 torch/_dynamo/convert_frame.py:915] [18/8]    last reason: 18/7: Cache line invalidated because L['function'] got deallocated
+[rank0]:W1217 17:47:23.817000 53484 torch/_dynamo/convert_frame.py:915] [18/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank0]:W1217 17:47:23.817000 53484 torch/_dynamo/convert_frame.py:915] [18/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank1]:W1217 17:47:23.818000 53488 torch/_dynamo/convert_frame.py:915] [18/8] torch._dynamo hit config.cache_size_limit (8)
+[rank1]:W1217 17:47:23.818000 53488 torch/_dynamo/convert_frame.py:915] [18/8]    function: 'apply_to_tensors_only' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/utils.py:146)
+[rank1]:W1217 17:47:23.818000 53488 torch/_dynamo/convert_frame.py:915] [18/8]    last reason: 18/7: Cache line invalidated because L['function'] got deallocated
+[rank1]:W1217 17:47:23.818000 53488 torch/_dynamo/convert_frame.py:915] [18/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank1]:W1217 17:47:23.818000 53488 torch/_dynamo/convert_frame.py:915] [18/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+[rank3]:W1217 17:47:23.821000 53494 torch/_dynamo/convert_frame.py:915] [18/8] torch._dynamo hit config.cache_size_limit (8)
+[rank3]:W1217 17:47:23.821000 53494 torch/_dynamo/convert_frame.py:915] [18/8]    function: 'apply_to_tensors_only' (/users/bzuidema/lsaie_deepspeed/deepspeed/runtime/zero/utils.py:146)
+[rank3]:W1217 17:47:23.821000 53494 torch/_dynamo/convert_frame.py:915] [18/8]    last reason: 18/7: Cache line invalidated because L['function'] got deallocated
+[rank3]:W1217 17:47:23.821000 53494 torch/_dynamo/convert_frame.py:915] [18/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[rank3]:W1217 17:47:23.821000 53494 torch/_dynamo/convert_frame.py:915] [18/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+2025-12-17 17:47:28,249 - root - INFO - Step: 5 | Loss: 11.89 | Tokens per second: 5284.77 | Training tokens per second (%): 39.77 | MFU (%): 6.89 | TFLOPs: 68.10 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.42 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:28,249 - root - INFO - Step: 5 | Loss: 11.85 | Tokens per second: 5284.51 | Training tokens per second (%): 27.73 | MFU (%): 6.88 | TFLOPs: 68.09 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:28,249 - root - INFO - Step: 5 | Loss: 11.83 | Tokens per second: 5284.49 | Training tokens per second (%): 60.00 | MFU (%): 6.88 | TFLOPs: 68.09 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:28,249 - root - INFO - Step: 5 | Loss: 11.84 | Tokens per second: 5284.10 | Training tokens per second (%): 49.78 | MFU (%): 6.88 | TFLOPs: 68.09 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:33,235 - root - INFO - Step: 10 | Loss: 10.40 | Tokens per second: 8214.60 | Training tokens per second (%): 39.41 | MFU (%): 10.70 | TFLOPs: 105.85 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:33,236 - root - INFO - Step: 10 | Loss: 10.66 | Tokens per second: 8214.52 | Training tokens per second (%): 27.79 | MFU (%): 10.70 | TFLOPs: 105.85 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:33,236 - root - INFO - Step: 10 | Loss: 10.17 | Tokens per second: 8215.14 | Training tokens per second (%): 30.87 | MFU (%): 10.70 | TFLOPs: 105.85 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:33,236 - root - INFO - Step: 10 | Loss: 9.97 | Tokens per second: 8213.68 | Training tokens per second (%): 40.84 | MFU (%): 10.70 | TFLOPs: 105.84 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:38,196 - root - INFO - Step: 15 | Loss: 9.62 | Tokens per second: 8258.89 | Training tokens per second (%): 25.31 | MFU (%): 10.76 | TFLOPs: 106.42 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:38,196 - root - INFO - Step: 15 | Loss: 10.05 | Tokens per second: 8258.98 | Training tokens per second (%): 52.16 | MFU (%): 10.76 | TFLOPs: 106.42 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:38,196 - root - INFO - Step: 15 | Loss: 9.05 | Tokens per second: 8259.00 | Training tokens per second (%): 27.36 | MFU (%): 10.76 | TFLOPs: 106.42 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:38,196 - root - INFO - Step: 15 | Loss: 9.37 | Tokens per second: 8258.94 | Training tokens per second (%): 31.92 | MFU (%): 10.76 | TFLOPs: 106.42 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:43,167 - root - INFO - Step: 20 | Loss: 8.51 | Tokens per second: 8239.76 | Training tokens per second (%): 30.31 | MFU (%): 10.74 | TFLOPs: 106.17 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:43,167 - root - INFO - Step: 20 | Loss: 9.52 | Tokens per second: 8239.72 | Training tokens per second (%): 36.23 | MFU (%): 10.74 | TFLOPs: 106.17 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:43,167 - root - INFO - Step: 20 | Loss: 8.48 | Tokens per second: 8239.74 | Training tokens per second (%): 20.62 | MFU (%): 10.74 | TFLOPs: 106.17 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:43,168 - root - INFO - Step: 20 | Loss: 9.66 | Tokens per second: 8239.55 | Training tokens per second (%): 40.03 | MFU (%): 10.73 | TFLOPs: 106.17 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:48,143 - root - INFO - Step: 25 | Loss: 9.32 | Tokens per second: 8232.93 | Training tokens per second (%): 25.36 | MFU (%): 10.73 | TFLOPs: 106.08 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:48,143 - root - INFO - Step: 25 | Loss: 9.71 | Tokens per second: 8232.91 | Training tokens per second (%): 17.13 | MFU (%): 10.73 | TFLOPs: 106.08 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:48,143 - root - INFO - Step: 25 | Loss: 9.07 | Tokens per second: 8232.82 | Training tokens per second (%): 26.37 | MFU (%): 10.73 | TFLOPs: 106.08 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:48,144 - root - INFO - Step: 25 | Loss: 8.81 | Tokens per second: 8232.76 | Training tokens per second (%): 30.03 | MFU (%): 10.73 | TFLOPs: 106.08 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:53,411 - root - INFO - Step: 30 | Loss: 8.99 | Tokens per second: 7777.34 | Training tokens per second (%): 38.74 | MFU (%): 10.13 | TFLOPs: 100.21 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:53,411 - root - INFO - Step: 30 | Loss: 9.34 | Tokens per second: 7777.37 | Training tokens per second (%): 46.38 | MFU (%): 10.13 | TFLOPs: 100.21 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 25.86 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:53,411 - root - INFO - Step: 30 | Loss: 8.93 | Tokens per second: 7776.58 | Training tokens per second (%): 34.33 | MFU (%): 10.13 | TFLOPs: 100.20 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:53,411 - root - INFO - Step: 30 | Loss: 9.19 | Tokens per second: 7777.26 | Training tokens per second (%): 34.40 | MFU (%): 10.13 | TFLOPs: 100.21 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:58,389 - root - INFO - Step: 35 | Loss: 8.11 | Tokens per second: 8228.16 | Training tokens per second (%): 42.95 | MFU (%): 10.72 | TFLOPs: 106.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:58,389 - root - INFO - Step: 35 | Loss: 8.98 | Tokens per second: 8228.88 | Training tokens per second (%): 30.36 | MFU (%): 10.72 | TFLOPs: 106.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:58,390 - root - INFO - Step: 35 | Loss: 8.81 | Tokens per second: 8227.80 | Training tokens per second (%): 39.22 | MFU (%): 10.72 | TFLOPs: 106.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:47:58,390 - root - INFO - Step: 35 | Loss: 8.51 | Tokens per second: 8228.10 | Training tokens per second (%): 29.41 | MFU (%): 10.72 | TFLOPs: 106.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:03,348 - root - INFO - Step: 40 | Loss: 8.79 | Tokens per second: 8261.53 | Training tokens per second (%): 33.12 | MFU (%): 10.76 | TFLOPs: 106.45 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:03,348 - root - INFO - Step: 40 | Loss: 8.77 | Tokens per second: 8261.80 | Training tokens per second (%): 29.43 | MFU (%): 10.76 | TFLOPs: 106.46 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:03,348 - root - INFO - Step: 40 | Loss: 8.56 | Tokens per second: 8262.22 | Training tokens per second (%): 22.34 | MFU (%): 10.76 | TFLOPs: 106.46 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:03,348 - root - INFO - Step: 40 | Loss: 8.71 | Tokens per second: 8260.78 | Training tokens per second (%): 46.49 | MFU (%): 10.76 | TFLOPs: 106.44 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:08,322 - root - INFO - Step: 45 | Loss: 8.38 | Tokens per second: 8236.13 | Training tokens per second (%): 18.80 | MFU (%): 10.73 | TFLOPs: 106.12 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:08,322 - root - INFO - Step: 45 | Loss: 8.15 | Tokens per second: 8236.15 | Training tokens per second (%): 53.08 | MFU (%): 10.73 | TFLOPs: 106.13 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:08,322 - root - INFO - Step: 45 | Loss: 8.71 | Tokens per second: 8236.09 | Training tokens per second (%): 47.55 | MFU (%): 10.73 | TFLOPs: 106.12 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:08,322 - root - INFO - Step: 45 | Loss: 8.03 | Tokens per second: 8236.02 | Training tokens per second (%): 59.87 | MFU (%): 10.73 | TFLOPs: 106.12 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:13,363 - root - INFO - Step: 50 | Loss: 7.94 | Tokens per second: 8125.87 | Training tokens per second (%): 20.11 | MFU (%): 10.59 | TFLOPs: 104.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:13,363 - root - INFO - Step: 50 | Loss: 8.27 | Tokens per second: 8126.35 | Training tokens per second (%): 37.09 | MFU (%): 10.59 | TFLOPs: 104.71 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:13,363 - root - INFO - Step: 50 | Loss: 8.07 | Tokens per second: 8125.82 | Training tokens per second (%): 50.39 | MFU (%): 10.59 | TFLOPs: 104.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:13,364 - root - INFO - Step: 50 | Loss: 8.07 | Tokens per second: 8125.17 | Training tokens per second (%): 56.77 | MFU (%): 10.59 | TFLOPs: 104.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:19,163 - root - INFO - Step: 55 | Loss: 8.26 | Tokens per second: 7063.89 | Training tokens per second (%): 42.23 | MFU (%): 9.20 | TFLOPs: 91.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:19,163 - root - INFO - Step: 55 | Loss: 8.17 | Tokens per second: 7063.91 | Training tokens per second (%): 28.41 | MFU (%): 9.20 | TFLOPs: 91.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:19,163 - root - INFO - Step: 55 | Loss: 8.89 | Tokens per second: 7064.29 | Training tokens per second (%): 43.58 | MFU (%): 9.20 | TFLOPs: 91.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:19,163 - root - INFO - Step: 55 | Loss: 8.10 | Tokens per second: 7063.30 | Training tokens per second (%): 46.30 | MFU (%): 9.20 | TFLOPs: 91.01 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:24,149 - root - INFO - Step: 60 | Loss: 7.73 | Tokens per second: 8216.29 | Training tokens per second (%): 35.04 | MFU (%): 10.70 | TFLOPs: 105.87 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:24,149 - root - INFO - Step: 60 | Loss: 8.29 | Tokens per second: 8216.27 | Training tokens per second (%): 42.74 | MFU (%): 10.70 | TFLOPs: 105.87 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:24,149 - root - INFO - Step: 60 | Loss: 8.16 | Tokens per second: 8216.24 | Training tokens per second (%): 60.13 | MFU (%): 10.70 | TFLOPs: 105.87 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:24,149 - root - INFO - Step: 60 | Loss: 7.83 | Tokens per second: 8216.23 | Training tokens per second (%): 49.20 | MFU (%): 10.70 | TFLOPs: 105.87 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:29,096 - root - INFO - Step: 65 | Loss: 7.94 | Tokens per second: 8280.62 | Training tokens per second (%): 49.06 | MFU (%): 10.79 | TFLOPs: 106.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:29,096 - root - INFO - Step: 65 | Loss: 8.64 | Tokens per second: 8280.61 | Training tokens per second (%): 32.40 | MFU (%): 10.79 | TFLOPs: 106.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:29,096 - root - INFO - Step: 65 | Loss: 8.20 | Tokens per second: 8280.32 | Training tokens per second (%): 44.82 | MFU (%): 10.79 | TFLOPs: 106.69 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:29,096 - root - INFO - Step: 65 | Loss: 8.67 | Tokens per second: 8280.60 | Training tokens per second (%): 34.57 | MFU (%): 10.79 | TFLOPs: 106.70 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:34,108 - root - INFO - Step: 70 | Loss: 7.86 | Tokens per second: 8173.80 | Training tokens per second (%): 37.08 | MFU (%): 10.65 | TFLOPs: 105.32 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:34,108 - root - INFO - Step: 70 | Loss: 7.23 | Tokens per second: 8173.78 | Training tokens per second (%): 23.64 | MFU (%): 10.65 | TFLOPs: 105.32 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:34,108 - root - INFO - Step: 70 | Loss: 7.95 | Tokens per second: 8173.55 | Training tokens per second (%): 25.63 | MFU (%): 10.65 | TFLOPs: 105.32 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:34,108 - root - INFO - Step: 70 | Loss: 7.59 | Tokens per second: 8173.75 | Training tokens per second (%): 26.19 | MFU (%): 10.65 | TFLOPs: 105.32 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:39,081 - root - INFO - Step: 75 | Loss: 6.86 | Tokens per second: 8237.25 | Training tokens per second (%): 36.48 | MFU (%): 10.73 | TFLOPs: 106.14 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:39,081 - root - INFO - Step: 75 | Loss: 7.19 | Tokens per second: 8236.99 | Training tokens per second (%): 40.82 | MFU (%): 10.73 | TFLOPs: 106.14 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:39,081 - root - INFO - Step: 75 | Loss: 8.03 | Tokens per second: 8237.31 | Training tokens per second (%): 37.45 | MFU (%): 10.73 | TFLOPs: 106.14 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:39,081 - root - INFO - Step: 75 | Loss: 7.72 | Tokens per second: 8237.04 | Training tokens per second (%): 40.97 | MFU (%): 10.73 | TFLOPs: 106.14 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:44,054 - root - INFO - Step: 80 | Loss: 7.78 | Tokens per second: 8238.10 | Training tokens per second (%): 45.63 | MFU (%): 10.73 | TFLOPs: 106.15 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:44,054 - root - INFO - Step: 80 | Loss: 7.75 | Tokens per second: 8237.89 | Training tokens per second (%): 29.85 | MFU (%): 10.73 | TFLOPs: 106.15 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:44,054 - root - INFO - Step: 80 | Loss: 7.56 | Tokens per second: 8238.49 | Training tokens per second (%): 35.16 | MFU (%): 10.73 | TFLOPs: 106.16 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:44,054 - root - INFO - Step: 80 | Loss: 7.96 | Tokens per second: 8237.88 | Training tokens per second (%): 45.07 | MFU (%): 10.73 | TFLOPs: 106.15 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:49,042 - root - INFO - Step: 85 | Loss: 8.09 | Tokens per second: 8213.08 | Training tokens per second (%): 35.36 | MFU (%): 10.70 | TFLOPs: 105.83 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:49,042 - root - INFO - Step: 85 | Loss: 7.88 | Tokens per second: 8212.89 | Training tokens per second (%): 35.73 | MFU (%): 10.70 | TFLOPs: 105.83 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:49,042 - root - INFO - Step: 85 | Loss: 7.84 | Tokens per second: 8213.54 | Training tokens per second (%): 37.54 | MFU (%): 10.70 | TFLOPs: 105.83 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:49,042 - root - INFO - Step: 85 | Loss: 7.26 | Tokens per second: 8212.33 | Training tokens per second (%): 43.90 | MFU (%): 10.70 | TFLOPs: 105.82 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:54,042 - root - INFO - Step: 90 | Loss: 7.91 | Tokens per second: 8191.81 | Training tokens per second (%): 23.58 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:54,043 - root - INFO - Step: 90 | Loss: 7.90 | Tokens per second: 8192.56 | Training tokens per second (%): 36.42 | MFU (%): 10.67 | TFLOPs: 105.56 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:54,043 - root - INFO - Step: 90 | Loss: 8.02 | Tokens per second: 8191.81 | Training tokens per second (%): 35.06 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:54,043 - root - INFO - Step: 90 | Loss: 6.85 | Tokens per second: 8191.03 | Training tokens per second (%): 27.01 | MFU (%): 10.67 | TFLOPs: 105.54 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:58,975 - root - INFO - Step: 95 | Loss: 7.64 | Tokens per second: 8305.73 | Training tokens per second (%): 52.12 | MFU (%): 10.82 | TFLOPs: 107.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:58,975 - root - INFO - Step: 95 | Loss: 7.78 | Tokens per second: 8305.72 | Training tokens per second (%): 19.16 | MFU (%): 10.82 | TFLOPs: 107.02 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:58,975 - root - INFO - Step: 95 | Loss: 7.78 | Tokens per second: 8306.35 | Training tokens per second (%): 38.12 | MFU (%): 10.82 | TFLOPs: 107.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:48:58,975 - root - INFO - Step: 95 | Loss: 7.35 | Tokens per second: 8304.87 | Training tokens per second (%): 57.74 | MFU (%): 10.82 | TFLOPs: 107.01 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:03,921 - root - INFO - Step: 100 | Loss: 7.10 | Tokens per second: 8282.20 | Training tokens per second (%): 38.41 | MFU (%): 10.79 | TFLOPs: 106.72 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:03,921 - root - INFO - Step: 100 | Loss: 7.18 | Tokens per second: 8282.24 | Training tokens per second (%): 64.75 | MFU (%): 10.79 | TFLOPs: 106.72 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:03,921 - root - INFO - Step: 100 | Loss: 7.72 | Tokens per second: 8282.93 | Training tokens per second (%): 58.66 | MFU (%): 10.79 | TFLOPs: 106.73 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:03,921 - root - INFO - Step: 100 | Loss: 7.59 | Tokens per second: 8281.55 | Training tokens per second (%): 32.33 | MFU (%): 10.79 | TFLOPs: 106.71 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:08,866 - root - INFO - Step: 105 | Loss: 7.51 | Tokens per second: 8284.38 | Training tokens per second (%): 55.27 | MFU (%): 10.79 | TFLOPs: 106.75 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:08,866 - root - INFO - Step: 105 | Loss: 7.53 | Tokens per second: 8284.35 | Training tokens per second (%): 56.19 | MFU (%): 10.79 | TFLOPs: 106.75 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:08,866 - root - INFO - Step: 105 | Loss: 8.46 | Tokens per second: 8284.97 | Training tokens per second (%): 13.50 | MFU (%): 10.79 | TFLOPs: 106.75 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:08,866 - root - INFO - Step: 105 | Loss: 7.53 | Tokens per second: 8283.49 | Training tokens per second (%): 41.88 | MFU (%): 10.79 | TFLOPs: 106.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:13,825 - root - INFO - Step: 110 | Loss: 7.40 | Tokens per second: 8260.43 | Training tokens per second (%): 22.74 | MFU (%): 10.76 | TFLOPs: 106.44 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:13,825 - root - INFO - Step: 110 | Loss: 7.16 | Tokens per second: 8261.19 | Training tokens per second (%): 30.21 | MFU (%): 10.76 | TFLOPs: 106.45 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:13,825 - root - INFO - Step: 110 | Loss: 7.90 | Tokens per second: 8260.47 | Training tokens per second (%): 38.24 | MFU (%): 10.76 | TFLOPs: 106.44 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:13,826 - root - INFO - Step: 110 | Loss: 7.65 | Tokens per second: 8259.71 | Training tokens per second (%): 53.11 | MFU (%): 10.76 | TFLOPs: 106.43 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:18,808 - root - INFO - Step: 115 | Loss: 7.54 | Tokens per second: 8221.72 | Training tokens per second (%): 60.48 | MFU (%): 10.71 | TFLOPs: 105.94 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:18,808 - root - INFO - Step: 115 | Loss: 7.10 | Tokens per second: 8221.20 | Training tokens per second (%): 23.98 | MFU (%): 10.71 | TFLOPs: 105.93 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:18,808 - root - INFO - Step: 115 | Loss: 6.97 | Tokens per second: 8221.16 | Training tokens per second (%): 33.34 | MFU (%): 10.71 | TFLOPs: 105.93 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:18,809 - root - INFO - Step: 115 | Loss: 6.93 | Tokens per second: 8220.40 | Training tokens per second (%): 32.16 | MFU (%): 10.71 | TFLOPs: 105.92 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:24,161 - root - INFO - Step: 120 | Loss: 6.36 | Tokens per second: 7652.47 | Training tokens per second (%): 55.53 | MFU (%): 9.97 | TFLOPs: 98.60 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:24,161 - root - INFO - Step: 120 | Loss: 7.47 | Tokens per second: 7652.45 | Training tokens per second (%): 14.89 | MFU (%): 9.97 | TFLOPs: 98.60 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:24,161 - root - INFO - Step: 120 | Loss: 7.68 | Tokens per second: 7652.45 | Training tokens per second (%): 29.38 | MFU (%): 9.97 | TFLOPs: 98.60 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:24,162 - root - INFO - Step: 120 | Loss: 6.63 | Tokens per second: 7652.43 | Training tokens per second (%): 14.97 | MFU (%): 9.97 | TFLOPs: 98.60 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:29,523 - root - INFO - Step: 125 | Loss: 7.40 | Tokens per second: 7639.98 | Training tokens per second (%): 38.47 | MFU (%): 9.95 | TFLOPs: 98.44 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:29,523 - root - INFO - Step: 125 | Loss: 7.46 | Tokens per second: 7639.99 | Training tokens per second (%): 28.20 | MFU (%): 9.95 | TFLOPs: 98.44 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:29,523 - root - INFO - Step: 125 | Loss: 7.15 | Tokens per second: 7640.53 | Training tokens per second (%): 24.38 | MFU (%): 9.95 | TFLOPs: 98.45 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:29,524 - root - INFO - Step: 125 | Loss: 7.47 | Tokens per second: 7639.32 | Training tokens per second (%): 49.58 | MFU (%): 9.95 | TFLOPs: 98.43 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:34,484 - root - INFO - Step: 130 | Loss: 7.47 | Tokens per second: 8258.17 | Training tokens per second (%): 29.72 | MFU (%): 10.76 | TFLOPs: 106.41 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:34,484 - root - INFO - Step: 130 | Loss: 7.46 | Tokens per second: 8258.82 | Training tokens per second (%): 39.61 | MFU (%): 10.76 | TFLOPs: 106.42 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:34,484 - root - INFO - Step: 130 | Loss: 7.86 | Tokens per second: 8258.05 | Training tokens per second (%): 76.61 | MFU (%): 10.76 | TFLOPs: 106.41 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:34,484 - root - INFO - Step: 130 | Loss: 7.36 | Tokens per second: 8257.50 | Training tokens per second (%): 23.79 | MFU (%): 10.76 | TFLOPs: 106.40 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:39,475 - root - INFO - Step: 135 | Loss: 7.25 | Tokens per second: 8208.78 | Training tokens per second (%): 15.90 | MFU (%): 10.69 | TFLOPs: 105.77 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:39,475 - root - INFO - Step: 135 | Loss: 7.60 | Tokens per second: 8208.80 | Training tokens per second (%): 44.98 | MFU (%): 10.69 | TFLOPs: 105.77 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:39,475 - root - INFO - Step: 135 | Loss: 8.07 | Tokens per second: 8208.23 | Training tokens per second (%): 43.57 | MFU (%): 10.69 | TFLOPs: 105.77 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:39,475 - root - INFO - Step: 135 | Loss: 7.05 | Tokens per second: 8208.09 | Training tokens per second (%): 47.35 | MFU (%): 10.69 | TFLOPs: 105.76 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:44,470 - root - INFO - Step: 140 | Loss: 7.07 | Tokens per second: 8201.18 | Training tokens per second (%): 41.25 | MFU (%): 10.69 | TFLOPs: 105.67 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:44,470 - root - INFO - Step: 140 | Loss: 7.80 | Tokens per second: 8201.33 | Training tokens per second (%): 29.57 | MFU (%): 10.69 | TFLOPs: 105.68 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:44,470 - root - INFO - Step: 140 | Loss: 7.47 | Tokens per second: 8201.47 | Training tokens per second (%): 51.46 | MFU (%): 10.69 | TFLOPs: 105.68 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:44,470 - root - INFO - Step: 140 | Loss: 7.64 | Tokens per second: 8200.26 | Training tokens per second (%): 44.90 | MFU (%): 10.68 | TFLOPs: 105.66 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:49,455 - root - INFO - Step: 145 | Loss: 6.77 | Tokens per second: 8218.16 | Training tokens per second (%): 40.22 | MFU (%): 10.71 | TFLOPs: 105.89 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:49,455 - root - INFO - Step: 145 | Loss: 7.81 | Tokens per second: 8218.75 | Training tokens per second (%): 28.04 | MFU (%): 10.71 | TFLOPs: 105.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:49,455 - root - INFO - Step: 145 | Loss: 7.60 | Tokens per second: 8217.86 | Training tokens per second (%): 23.10 | MFU (%): 10.71 | TFLOPs: 105.89 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:49,455 - root - INFO - Step: 145 | Loss: 7.39 | Tokens per second: 8217.50 | Training tokens per second (%): 40.03 | MFU (%): 10.71 | TFLOPs: 105.88 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:54,477 - root - INFO - Step: 150 | Loss: 7.80 | Tokens per second: 8157.52 | Training tokens per second (%): 25.32 | MFU (%): 10.63 | TFLOPs: 105.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:54,477 - root - INFO - Step: 150 | Loss: 7.60 | Tokens per second: 8156.94 | Training tokens per second (%): 50.62 | MFU (%): 10.63 | TFLOPs: 105.10 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:54,477 - root - INFO - Step: 150 | Loss: 7.37 | Tokens per second: 8157.05 | Training tokens per second (%): 61.47 | MFU (%): 10.63 | TFLOPs: 105.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:54,477 - root - INFO - Step: 150 | Loss: 7.31 | Tokens per second: 8157.49 | Training tokens per second (%): 41.10 | MFU (%): 10.63 | TFLOPs: 105.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:59,458 - root - INFO - Step: 155 | Loss: 7.48 | Tokens per second: 8224.58 | Training tokens per second (%): 61.52 | MFU (%): 10.72 | TFLOPs: 105.98 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:59,458 - root - INFO - Step: 155 | Loss: 7.33 | Tokens per second: 8225.05 | Training tokens per second (%): 37.36 | MFU (%): 10.72 | TFLOPs: 105.98 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:59,458 - root - INFO - Step: 155 | Loss: 7.61 | Tokens per second: 8224.85 | Training tokens per second (%): 36.85 | MFU (%): 10.72 | TFLOPs: 105.98 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:49:59,458 - root - INFO - Step: 155 | Loss: 7.37 | Tokens per second: 8224.37 | Training tokens per second (%): 35.81 | MFU (%): 10.72 | TFLOPs: 105.97 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:04,424 - root - INFO - Step: 160 | Loss: 7.10 | Tokens per second: 8249.02 | Training tokens per second (%): 66.84 | MFU (%): 10.75 | TFLOPs: 106.29 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:04,424 - root - INFO - Step: 160 | Loss: 7.06 | Tokens per second: 8249.32 | Training tokens per second (%): 38.63 | MFU (%): 10.75 | TFLOPs: 106.29 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:04,424 - root - INFO - Step: 160 | Loss: 7.12 | Tokens per second: 8249.37 | Training tokens per second (%): 39.92 | MFU (%): 10.75 | TFLOPs: 106.30 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:04,424 - root - INFO - Step: 160 | Loss: 6.65 | Tokens per second: 8248.35 | Training tokens per second (%): 28.84 | MFU (%): 10.75 | TFLOPs: 106.28 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:09,425 - root - INFO - Step: 165 | Loss: 6.90 | Tokens per second: 8191.24 | Training tokens per second (%): 49.42 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:09,425 - root - INFO - Step: 165 | Loss: 7.72 | Tokens per second: 8191.22 | Training tokens per second (%): 41.67 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:09,425 - root - INFO - Step: 165 | Loss: 6.93 | Tokens per second: 8191.16 | Training tokens per second (%): 18.36 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:09,425 - root - INFO - Step: 165 | Loss: 7.43 | Tokens per second: 8191.19 | Training tokens per second (%): 35.44 | MFU (%): 10.67 | TFLOPs: 105.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:14,406 - root - INFO - Step: 170 | Loss: 7.71 | Tokens per second: 8223.87 | Training tokens per second (%): 32.23 | MFU (%): 10.71 | TFLOPs: 105.97 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:14,406 - root - INFO - Step: 170 | Loss: 7.24 | Tokens per second: 8223.84 | Training tokens per second (%): 50.27 | MFU (%): 10.71 | TFLOPs: 105.97 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:14,406 - root - INFO - Step: 170 | Loss: 7.04 | Tokens per second: 8223.87 | Training tokens per second (%): 36.91 | MFU (%): 10.71 | TFLOPs: 105.97 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:14,407 - root - INFO - Step: 170 | Loss: 6.05 | Tokens per second: 8223.79 | Training tokens per second (%): 66.35 | MFU (%): 10.71 | TFLOPs: 105.97 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:19,398 - root - INFO - Step: 175 | Loss: 6.49 | Tokens per second: 8206.65 | Training tokens per second (%): 40.45 | MFU (%): 10.69 | TFLOPs: 105.75 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:19,398 - root - INFO - Step: 175 | Loss: 7.34 | Tokens per second: 8206.52 | Training tokens per second (%): 62.35 | MFU (%): 10.69 | TFLOPs: 105.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:19,398 - root - INFO - Step: 175 | Loss: 7.29 | Tokens per second: 8205.91 | Training tokens per second (%): 48.25 | MFU (%): 10.69 | TFLOPs: 105.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:19,398 - root - INFO - Step: 175 | Loss: 6.55 | Tokens per second: 8206.59 | Training tokens per second (%): 32.18 | MFU (%): 10.69 | TFLOPs: 105.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:24,382 - root - INFO - Step: 180 | Loss: 7.18 | Tokens per second: 8218.95 | Training tokens per second (%): 23.68 | MFU (%): 10.71 | TFLOPs: 105.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:24,382 - root - INFO - Step: 180 | Loss: 7.10 | Tokens per second: 8219.08 | Training tokens per second (%): 31.24 | MFU (%): 10.71 | TFLOPs: 105.91 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:24,382 - root - INFO - Step: 180 | Loss: 7.01 | Tokens per second: 8219.62 | Training tokens per second (%): 29.83 | MFU (%): 10.71 | TFLOPs: 105.91 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:24,383 - root - INFO - Step: 180 | Loss: 6.90 | Tokens per second: 8218.81 | Training tokens per second (%): 21.20 | MFU (%): 10.71 | TFLOPs: 105.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:29,774 - root - INFO - Step: 185 | Loss: 7.06 | Tokens per second: 7597.54 | Training tokens per second (%): 68.74 | MFU (%): 9.90 | TFLOPs: 97.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:29,774 - root - INFO - Step: 185 | Loss: 7.24 | Tokens per second: 7597.51 | Training tokens per second (%): 26.38 | MFU (%): 9.90 | TFLOPs: 97.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:29,774 - root - INFO - Step: 185 | Loss: 7.16 | Tokens per second: 7597.57 | Training tokens per second (%): 36.83 | MFU (%): 9.90 | TFLOPs: 97.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:29,775 - root - INFO - Step: 185 | Loss: 8.05 | Tokens per second: 7597.52 | Training tokens per second (%): 36.61 | MFU (%): 9.90 | TFLOPs: 97.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:35,130 - root - INFO - Step: 190 | Loss: 7.12 | Tokens per second: 7648.37 | Training tokens per second (%): 25.28 | MFU (%): 9.96 | TFLOPs: 98.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:35,130 - root - INFO - Step: 190 | Loss: 7.09 | Tokens per second: 7648.34 | Training tokens per second (%): 70.87 | MFU (%): 9.96 | TFLOPs: 98.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:35,130 - root - INFO - Step: 190 | Loss: 7.38 | Tokens per second: 7648.13 | Training tokens per second (%): 35.03 | MFU (%): 9.96 | TFLOPs: 98.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:35,131 - root - INFO - Step: 190 | Loss: 7.27 | Tokens per second: 7648.30 | Training tokens per second (%): 46.43 | MFU (%): 9.96 | TFLOPs: 98.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:40,118 - root - INFO - Step: 195 | Loss: 7.29 | Tokens per second: 8213.68 | Training tokens per second (%): 49.31 | MFU (%): 10.70 | TFLOPs: 105.84 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:40,118 - root - INFO - Step: 195 | Loss: 6.82 | Tokens per second: 8213.54 | Training tokens per second (%): 31.45 | MFU (%): 10.70 | TFLOPs: 105.83 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:40,118 - root - INFO - Step: 195 | Loss: 7.48 | Tokens per second: 8214.19 | Training tokens per second (%): 53.39 | MFU (%): 10.70 | TFLOPs: 105.84 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:40,118 - root - INFO - Step: 195 | Loss: 6.97 | Tokens per second: 8212.86 | Training tokens per second (%): 26.32 | MFU (%): 10.70 | TFLOPs: 105.83 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:45,103 - root - INFO - Step: 200 | Loss: 7.41 | Tokens per second: 8219.08 | Training tokens per second (%): 35.04 | MFU (%): 10.71 | TFLOPs: 105.91 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:45,103 - root - INFO - Step: 200 | Loss: 7.03 | Tokens per second: 8217.90 | Training tokens per second (%): 52.17 | MFU (%): 10.71 | TFLOPs: 105.89 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:45,103 - root - INFO - Step: 200 | Loss: 6.76 | Tokens per second: 8217.90 | Training tokens per second (%): 41.25 | MFU (%): 10.71 | TFLOPs: 105.89 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:45,103 - root - INFO - Step: 200 | Loss: 7.01 | Tokens per second: 8217.58 | Training tokens per second (%): 59.52 | MFU (%): 10.71 | TFLOPs: 105.89 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:50,087 - root - INFO - Step: 205 | Loss: 7.10 | Tokens per second: 8219.86 | Training tokens per second (%): 25.59 | MFU (%): 10.71 | TFLOPs: 105.92 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:50,087 - root - INFO - Step: 205 | Loss: 6.84 | Tokens per second: 8219.87 | Training tokens per second (%): 26.38 | MFU (%): 10.71 | TFLOPs: 105.92 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:50,087 - root - INFO - Step: 205 | Loss: 6.99 | Tokens per second: 8219.53 | Training tokens per second (%): 27.65 | MFU (%): 10.71 | TFLOPs: 105.91 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:50,087 - root - INFO - Step: 205 | Loss: 6.89 | Tokens per second: 8218.73 | Training tokens per second (%): 63.92 | MFU (%): 10.71 | TFLOPs: 105.90 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:55,064 - root - INFO - Step: 210 | Loss: 6.71 | Tokens per second: 8231.79 | Training tokens per second (%): 21.88 | MFU (%): 10.72 | TFLOPs: 106.07 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:55,064 - root - INFO - Step: 210 | Loss: 7.47 | Tokens per second: 8230.63 | Training tokens per second (%): 45.62 | MFU (%): 10.72 | TFLOPs: 106.05 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:55,064 - root - INFO - Step: 210 | Loss: 7.99 | Tokens per second: 8230.77 | Training tokens per second (%): 22.44 | MFU (%): 10.72 | TFLOPs: 106.06 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:50:55,064 - root - INFO - Step: 210 | Loss: 7.98 | Tokens per second: 8230.95 | Training tokens per second (%): 15.79 | MFU (%): 10.72 | TFLOPs: 106.06 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:00,042 - root - INFO - Step: 215 | Loss: 7.70 | Tokens per second: 8228.81 | Training tokens per second (%): 28.92 | MFU (%): 10.72 | TFLOPs: 106.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:00,042 - root - INFO - Step: 215 | Loss: 6.74 | Tokens per second: 8228.50 | Training tokens per second (%): 56.14 | MFU (%): 10.72 | TFLOPs: 106.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:00,042 - root - INFO - Step: 215 | Loss: 7.46 | Tokens per second: 8228.37 | Training tokens per second (%): 20.32 | MFU (%): 10.72 | TFLOPs: 106.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:00,042 - root - INFO - Step: 215 | Loss: 6.62 | Tokens per second: 8228.61 | Training tokens per second (%): 38.17 | MFU (%): 10.72 | TFLOPs: 106.03 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:04,997 - root - INFO - Step: 220 | Loss: 6.94 | Tokens per second: 8268.24 | Training tokens per second (%): 36.65 | MFU (%): 10.77 | TFLOPs: 106.54 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:04,997 - root - INFO - Step: 220 | Loss: 7.07 | Tokens per second: 8268.83 | Training tokens per second (%): 53.53 | MFU (%): 10.77 | TFLOPs: 106.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:04,997 - root - INFO - Step: 220 | Loss: 7.17 | Tokens per second: 8269.08 | Training tokens per second (%): 62.31 | MFU (%): 10.77 | TFLOPs: 106.55 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:04,997 - root - INFO - Step: 220 | Loss: 7.33 | Tokens per second: 8268.33 | Training tokens per second (%): 52.39 | MFU (%): 10.77 | TFLOPs: 106.54 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:09,971 - root - INFO - Step: 225 | Loss: 7.64 | Tokens per second: 8234.73 | Training tokens per second (%): 60.49 | MFU (%): 10.73 | TFLOPs: 106.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:09,971 - root - INFO - Step: 225 | Loss: 7.36 | Tokens per second: 8234.71 | Training tokens per second (%): 46.07 | MFU (%): 10.73 | TFLOPs: 106.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:09,971 - root - INFO - Step: 225 | Loss: 7.57 | Tokens per second: 8234.70 | Training tokens per second (%): 17.36 | MFU (%): 10.73 | TFLOPs: 106.11 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:09,972 - root - INFO - Step: 225 | Loss: 6.61 | Tokens per second: 8234.50 | Training tokens per second (%): 33.09 | MFU (%): 10.73 | TFLOPs: 106.10 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:14,961 - root - INFO - Step: 230 | Loss: 7.18 | Tokens per second: 8209.35 | Training tokens per second (%): 54.63 | MFU (%): 10.70 | TFLOPs: 105.78 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:14,961 - root - INFO - Step: 230 | Loss: 6.74 | Tokens per second: 8209.32 | Training tokens per second (%): 53.33 | MFU (%): 10.70 | TFLOPs: 105.78 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:14,962 - root - INFO - Step: 230 | Loss: 6.40 | Tokens per second: 8209.02 | Training tokens per second (%): 45.48 | MFU (%): 10.70 | TFLOPs: 105.78 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:14,962 - root - INFO - Step: 230 | Loss: 6.86 | Tokens per second: 8209.22 | Training tokens per second (%): 33.52 | MFU (%): 10.70 | TFLOPs: 105.78 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:19,972 - root - INFO - Step: 235 | Loss: 6.68 | Tokens per second: 8176.12 | Training tokens per second (%): 33.66 | MFU (%): 10.65 | TFLOPs: 105.35 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:19,972 - root - INFO - Step: 235 | Loss: 6.99 | Tokens per second: 8176.05 | Training tokens per second (%): 47.39 | MFU (%): 10.65 | TFLOPs: 105.35 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:19,972 - root - INFO - Step: 235 | Loss: 7.16 | Tokens per second: 8176.50 | Training tokens per second (%): 38.65 | MFU (%): 10.65 | TFLOPs: 105.36 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:19,972 - root - INFO - Step: 235 | Loss: 7.34 | Tokens per second: 8175.95 | Training tokens per second (%): 28.22 | MFU (%): 10.65 | TFLOPs: 105.35 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:24,917 - root - INFO - Step: 240 | Loss: 6.52 | Tokens per second: 8283.88 | Training tokens per second (%): 23.52 | MFU (%): 10.79 | TFLOPs: 106.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:24,917 - root - INFO - Step: 240 | Loss: 6.68 | Tokens per second: 8283.92 | Training tokens per second (%): 21.17 | MFU (%): 10.79 | TFLOPs: 106.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:24,917 - root - INFO - Step: 240 | Loss: 7.79 | Tokens per second: 8283.89 | Training tokens per second (%): 31.04 | MFU (%): 10.79 | TFLOPs: 106.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:24,918 - root - INFO - Step: 240 | Loss: 6.91 | Tokens per second: 8283.96 | Training tokens per second (%): 44.20 | MFU (%): 10.79 | TFLOPs: 106.74 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:29,872 - root - INFO - Step: 245 | Loss: 7.35 | Tokens per second: 8267.60 | Training tokens per second (%): 56.42 | MFU (%): 10.77 | TFLOPs: 106.53 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:29,872 - root - INFO - Step: 245 | Loss: 7.16 | Tokens per second: 8267.60 | Training tokens per second (%): 52.58 | MFU (%): 10.77 | TFLOPs: 106.53 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:29,872 - root - INFO - Step: 245 | Loss: 7.02 | Tokens per second: 8267.10 | Training tokens per second (%): 42.85 | MFU (%): 10.77 | TFLOPs: 106.52 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:29,873 - root - INFO - Step: 245 | Loss: 7.17 | Tokens per second: 8267.49 | Training tokens per second (%): 20.40 | MFU (%): 10.77 | TFLOPs: 106.53 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:34,835 - root - INFO - Step: 250 | Loss: 7.46 | Tokens per second: 8254.79 | Training tokens per second (%): 23.88 | MFU (%): 10.75 | TFLOPs: 106.37 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.38 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:34,835 - root - INFO - Step: 250 | Loss: 7.28 | Tokens per second: 8254.80 | Training tokens per second (%): 26.95 | MFU (%): 10.75 | TFLOPs: 106.37 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.58 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:34,835 - root - INFO - Training completed
+2025-12-17 17:51:34,835 - root - INFO - Step: 250 | Loss: 7.00 | Tokens per second: 8255.41 | Training tokens per second (%): 41.03 | MFU (%): 10.76 | TFLOPs: 106.37 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.94 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:34,835 - root - INFO - Training completed
+2025-12-17 17:51:34,835 - root - INFO - Training completed
+2025-12-17 17:51:34,835 - root - INFO - Step: 250 | Loss: 6.96 | Tokens per second: 8254.77 | Training tokens per second (%): 42.08 | MFU (%): 10.75 | TFLOPs: 106.37 | Mem Allocated (GB): 4.90 | Mem Reserved (GB): 26.50 | Max Mem Allocated (GB): 22.12
+2025-12-17 17:51:34,835 - root - INFO - Training completed
+[2025-12-17 17:51:37,583] [INFO] [launch.py:367:main] Process 53494 exits successfully.
+[2025-12-17 17:51:37,583] [INFO] [launch.py:367:main] Process 53491 exits successfully.
+[2025-12-17 17:51:37,583] [INFO] [launch.py:367:main] Process 53488 exits successfully.
+[2025-12-17 17:51:37,583] [INFO] [launch.py:367:main] Process 53484 exits successfully.
+Exception ignored in atexit callback: <function dump_compile_times at 0x40018ef3e020>
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/utils.py", line 438, in dump_compile_times
+  File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/utils.py", line 424, in compile_times
+  File "/usr/local/lib/python3.12/dist-packages/torch/_dynamo/utils.py", line 205, in tabulate
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1128, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1186, in get_data
+OSError: [Errno 107] Transport endpoint is not connected: '/usr/local/lib/python3.12/dist-packages/tabulate/__init__.py'
+END TIME: Wed Dec 17 17:51:41 CET 2025
