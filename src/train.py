@@ -228,8 +228,12 @@ def train(args):
             tflops = num_flop_per_token * tps / (1e12 * world_size)
             training_tps = ntraining_tokens_since_last_log / time_delta
 
+            mem_allocated = torch.cuda.memory_allocated() / 1e9
+            mem_reserved = torch.cuda.memory_reserved() / 1e9
+            max_mem_allocated = torch.cuda.max_memory_allocated()/ 1e9
+
             logger.info(
-                f"Step: {train_step} | Loss: {loss.item():.2f} | Tokens per second: {tps:.2f} | Training tokens per second (%): {100*training_tps/tps:.2f} | MFU (%): {mfu:.2f} | TFLOPs: {tflops:.2f}"
+                f"Step: {train_step} | Loss: {loss.item():.2f} | Tokens per second: {tps:.2f} | Training tokens per second (%): {100*training_tps/tps:.2f} | MFU (%): {mfu:.2f} | TFLOPs: {tflops:.2f} | Mem Allocated (GB): {mem_allocated:.2f} | Mem Reserved (GB): {mem_reserved:.2f} | Max Mem Allocated (GB): {max_mem_allocated:.2f}"
             )
             ntokens_since_last_log = 0
             ntraining_tokens_since_last_log = 0
