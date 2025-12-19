@@ -1,0 +1,667 @@
+START TIME: Wed Dec 17 17:45:09 CET 2025
+Running DeepSpeed Stage: 3_deepcompile
+Job ID: 1254470
+Output will be in: logs/deepspeed/1254470.out
+df: /users/bzuidema/.triton/autotune: No such file or directory
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[2025-12-17 17:45:32,293] [WARNING] [runner.py:232:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2025-12-17 17:45:32,293] [INFO] [runner.py:630:main] cmd = /usr/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None --bind_cores_to_rank --log_level=info /users/bzuidema/scratch/project/src/train.py --deepspeed_config /users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json --batch-size 1 --learning-rate 5e-5 --lr-warmup-steps 100 --training-steps 1000 --sequence-length 2048 --deepspeed
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_NET_PLUGIN=ofi
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_VERSION=2.25.1
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_SOCKET_IFNAME=hsn
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_NVLS_ENABLE=0
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_NET_GDR_LEVEL=PHB
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 TORCH_NCCL_USE_COMM_NONBLOCKING=0
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_NET=AWS Libfabric
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 AWS_OFI_NCCL_VERSION=1.12.1
+[2025-12-17 17:45:38,903] [INFO] [launch.py:155:main] 0 NCCL_CROSS_NIC=1
+[2025-12-17 17:45:38,903] [INFO] [launch.py:162:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2025-12-17 17:45:38,903] [INFO] [launch.py:168:main] nnodes=1, num_local_procs=4, node_rank=0
+[2025-12-17 17:45:38,903] [INFO] [launch.py:179:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2025-12-17 17:45:38,903] [INFO] [launch.py:180:main] dist_world_size=4
+[2025-12-17 17:45:38,903] [INFO] [launch.py:184:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2025-12-17 17:45:38,931] [INFO] [launch.py:272:main] process 20988 spawned with command: ['numactl', '-m', '0', '-C', '0-71', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=0', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:45:38,947] [INFO] [launch.py:272:main] process 20991 spawned with command: ['numactl', '-m', '1', '-C', '72-143', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=1', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:45:38,963] [INFO] [launch.py:272:main] process 20994 spawned with command: ['numactl', '-m', '2', '-C', '144-215', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=2', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[2025-12-17 17:45:38,979] [INFO] [launch.py:272:main] process 20997 spawned with command: ['numactl', '-m', '3', '-C', '216-287', '/usr/bin/python', '-u', '/users/bzuidema/scratch/project/src/train.py', '--local_rank=3', '--deepspeed_config', '/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', '--batch-size', '1', '--learning-rate', '5e-5', '--lr-warmup-steps', '100', '--training-steps', '1000', '--sequence-length', '2048', '--deepspeed']
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+2025-12-17 17:45:47,851 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', local_rank=3)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+[DeepCompile PATCH] Loading patched patch_compiled_func.py (PyTorch 2.6.0a0+ecf3bae40a.nv25.01)
+[DeepCompile PATCH] Using PyTorch 2.6 fallback code path (handles NGC alpha versions)
+2025-12-17 17:45:48,935 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', local_rank=1)
+2025-12-17 17:45:48,938 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', local_rank=2)
+2025-12-17 17:45:48,941 - root - INFO - Experiment args: Namespace(dataset='/capstor/store/cscs/ethz/large-sc-2/datasets/train_data.parquet', tokenizer_name_or_path='unsloth/Mistral-Nemo-Base-2407-bnb-4bit', sequence_length=2048, batch_size=1, fused_optimizer=False, learning_rate=5e-05, lr_warmup_steps=100, training_steps=1000, logging_frequency=5, profile=False, profile_step_start=10, profile_step_end=12, grad_max_norm=1, model_dtype='bf16', compile=False, deepspeed=True, deepspeed_config='/users/bzuidema/scratch/project/configs/deepspeed/stage_3_deepcompile.json', local_rank=0)
+2025-12-17 17:45:54,455 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:45:54,456 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:45:54,456 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:45:54,458 - root - INFO - Setting up DataLoaders...
+2025-12-17 17:45:58,400 - root - INFO - Setting up Model...
+2025-12-17 17:45:58,401 - root - INFO - Setting up Model...
+2025-12-17 17:45:58,401 - root - INFO - Setting up Model...
+2025-12-17 17:45:58,401 - root - INFO - Setting up Model...
+2025-12-17 17:45:58,404 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:45:58,404 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:45:58,404 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:45:58,404 - root - INFO - Using ZeRO Stage 3 partition-at-init
+2025-12-17 17:46:03,946 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:03,946 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:03,946 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:03,948 - root - INFO - Letting DeepSpeed create optimizer from config
+2025-12-17 17:46:03,952 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:03,952 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:03,952 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:03,952 - root - INFO - Letting DeepSpeed create optimizer from config
+2025-12-17 17:46:03,958 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:03,958 - root - INFO - Model parameters (excluding embedding): 8,053,329,920
+2025-12-17 17:46:03,958 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:03,958 - root - INFO - FLOPs per token: 51,541,204,992
+2025-12-17 17:46:03,959 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:03,959 - root - INFO - Using DeepSpeed
+2025-12-17 17:46:03,959 - root - INFO - Letting DeepSpeed create optimizer from config
+2025-12-17 17:46:03,959 - root - INFO - Letting DeepSpeed create optimizer from config
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2011: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+Stage 3 initialize beginning
+MA 3.75 GB         Max_MA 4.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 171.85 GB, percent = 20.1%
+DeepSpeedZeRoOffload initialize [begin]
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 171.85 GB, percent = 20.1%
+Parameter Offload - Persistent parameters statistics: param_count = 65, numel = 266240
+DeepSpeedZeRoOffload initialize [end]
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 171.85 GB, percent = 20.1%
+Before creating fp16 partitions
+MA 3.75 GB         Max_MA 3.75 GB         CA 4.88 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 171.85 GB, percent = 20.1%
+After creating fp16 partitions: 2
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 5 GB 
+CPU Virtual Memory:  used = 201.26 GB, percent = 23.6%
+Before creating fp32 partitions
+MA 3.75 GB         Max_MA 3.75 GB         CA 3.75 GB         Max_CA 4 GB 
+CPU Virtual Memory:  used = 201.26 GB, percent = 23.6%
+After creating fp32 partitions
+MA 11.25 GB         Max_MA 15.0 GB         CA 15.01 GB         Max_CA 15 GB 
+CPU Virtual Memory:  used = 212.53 GB, percent = 24.9%
+Before initializing optimizer states
+MA 11.25 GB         Max_MA 11.25 GB         CA 15.01 GB         Max_CA 15 GB 
+CPU Virtual Memory:  used = 212.53 GB, percent = 24.9%
+After initializing optimizer states
+MA 11.25 GB         Max_MA 15.0 GB         CA 15.01 GB         Max_CA 15 GB 
+CPU Virtual Memory:  used = 212.53 GB, percent = 24.9%
+[2025-12-17 17:46:24,579] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+[2025-12-17 17:46:24,580] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:24,580 - root - INFO - Enabling Compile in DeepSpeed
+2025-12-17 17:46:24,580 - root - INFO - Enabling Compile in DeepSpeed
+[2025-12-17 17:46:24,593] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:24,594 - root - INFO - Enabling Compile in DeepSpeed
+After initializing ZeRO optimizer
+MA 15.93 GB         Max_MA 17.93 GB         CA 18.76 GB         Max_CA 19 GB 
+CPU Virtual Memory:  used = 215.93 GB, percent = 25.3%
+[2025-12-17 17:46:24,702] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+2025-12-17 17:46:24,704 - root - INFO - Enabling Compile in DeepSpeed
+/usr/local/lib/python3.12/dist-packages/torch/utils/cpp_extension.py:2011: UserWarning: TORCH_CUDA_ARCH_LIST is not set, all archs for visible cards are included for compilation. 
+If this is not desired, please set os.environ['TORCH_CUDA_ARCH_LIST'].
+  warnings.warn(
+2025-12-17 17:46:55,457 - root - INFO - Starting training!
+Launching compile passes: global_steps=0 passes=[<function add_z3_gather_release at 0x4004b5ab1300>]
+2025-12-17 17:46:55,560 - root - INFO - Starting training!
+2025-12-17 17:46:55,569 - root - INFO - Starting training!
+2025-12-17 17:46:55,621 - root - INFO - Starting training!
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+/usr/local/lib/python3.12/dist-packages/torch/_inductor/lowering.py:1782: UserWarning: Torchinductor does not support code generation for complex operators. Performance may be worse than eager.
+  warnings.warn(
+2025-12-17 17:48:19,456 - root - INFO - Step: 1 | Loss: 11.95 | Tokens per second: 97.53 | Training tokens per second (%): 8.84 | MFU (%): 0.13 | TFLOPs: 1.26 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 74.70 | Max Mem Allocated (GB): 38.46
+2025-12-17 17:48:19,456 - root - INFO - Step: 1 | Loss: 11.94 | Tokens per second: 97.66 | Training tokens per second (%): 35.25 | MFU (%): 0.13 | TFLOPs: 1.26 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 74.70 | Max Mem Allocated (GB): 38.46
+2025-12-17 17:48:19,456 - root - INFO - Step: 1 | Loss: 11.91 | Tokens per second: 97.72 | Training tokens per second (%): 28.12 | MFU (%): 0.13 | TFLOPs: 1.26 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 74.70 | Max Mem Allocated (GB): 38.46
+2025-12-17 17:48:19,456 - root - INFO - Step: 1 | Loss: 11.84 | Tokens per second: 97.65 | Training tokens per second (%): 6.40 | MFU (%): 0.13 | TFLOPs: 1.26 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 74.70 | Max Mem Allocated (GB): 38.46
+2025-12-17 17:48:21,087 - root - INFO - Step: 5 | Loss: 11.91 | Tokens per second: 20096.74 | Training tokens per second (%): 27.73 | MFU (%): 26.18 | TFLOPs: 258.95 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 75.77 | Max Mem Allocated (GB): 65.11
+2025-12-17 17:48:21,087 - root - INFO - Step: 5 | Loss: 11.86 | Tokens per second: 20097.52 | Training tokens per second (%): 39.77 | MFU (%): 26.18 | TFLOPs: 258.96 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 75.77 | Max Mem Allocated (GB): 65.11
+2025-12-17 17:48:21,087 - root - INFO - Step: 5 | Loss: 11.80 | Tokens per second: 20095.86 | Training tokens per second (%): 60.00 | MFU (%): 26.18 | TFLOPs: 258.94 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 75.77 | Max Mem Allocated (GB): 65.11
+2025-12-17 17:48:21,087 - root - INFO - Step: 5 | Loss: 11.82 | Tokens per second: 20097.57 | Training tokens per second (%): 49.78 | MFU (%): 26.18 | TFLOPs: 258.96 | Mem Allocated (GB): 34.43 | Mem Reserved (GB): 75.77 | Max Mem Allocated (GB): 65.11
+Launching compile passes: global_steps=5 passes=[<function add_z3_gather_release at 0x4004b5ab1300>, <function schedule_prefetch at 0x4004b5ab1800>, <function selective_gather at 0x4004b5ab1940>]
+schedule_prefetch graph_id=70374815160352 max_mem=91321745408.0 available_memory=47178645504 memory_allocated=49000591872 max_allocated=49000592384 total_param_size=16106659840 margin=0.1
+size: 0, avg_duration: 0
+size: 8, avg_duration: 0.0001032799991662614
+size: 16, avg_duration: 0.00010024480434367433
+size: 32, avg_duration: 9.798959945328534e-05
+size: 64, avg_duration: 9.478320134803653e-05
+size: 128, avg_duration: 9.28488007048145e-05
+size: 256, avg_duration: 9.239999781129882e-05
+size: 512, avg_duration: 9.226879774359986e-05
+size: 1024, avg_duration: 9.416800457984209e-05
+size: 2048, avg_duration: 9.003840386867523e-05
+size: 4096, avg_duration: 8.777839684626088e-05
+size: 8192, avg_duration: 8.648959919810295e-05
+size: 16384, avg_duration: 8.390880248043686e-05
+size: 32768, avg_duration: 8.315919694723561e-05
+size: 65536, avg_duration: 8.27944022603333e-05
+size: 131072, avg_duration: 8.073359640548006e-05
+size: 262144, avg_duration: 8.585199975641444e-05
+size: 524288, avg_duration: 8.368719863938168e-05
+size: 1048576, avg_duration: 8.38959967950359e-05
+size: 2097152, avg_duration: 8.307599637191743e-05
+size: 4194304, avg_duration: 8.236960275098681e-05
+size: 8388608, avg_duration: 8.061279368121177e-05
+size: 16777216, avg_duration: 8.525600424036384e-05
+size: 33554432, avg_duration: 0.00011213360266992822
+size: 67108864, avg_duration: 0.00019463920034468174
+size: 134217728, avg_duration: 0.0003574399743229151
+size: 268435456, avg_duration: 0.0006835079984739423
+size: 536870912, avg_duration: 0.001321248011663556
+size: 1073741824, avg_duration: 0.002601295942440629
+size: 2147483648, avg_duration: 0.005119631998240948
+schedule_prefetch graph_id=70374815160352 max_mem=91321745408.0 available_memory=43867242496 memory_allocated=49000544256 max_allocated=49000544256 total_param_size=15032918016 margin=0.1
+selective_gather graph_id=70374815160352 max_mem=72702468096 fwd_max_mem=72702468096 bwd_max_mem=63774474240
+selective_gather max_mem=72702468096 total_mem=101468602368 MEM_MARGIN=0.1 available_mem=18619274035.199997
+Set persistent: 8 size: 8192 persistent_mem: 8192 shape: torch.Size([4096])
+Set persistent: 9 size: 8192 persistent_mem: 16384 shape: torch.Size([4096])
+Set persistent: 17 size: 8192 persistent_mem: 24576 shape: torch.Size([4096])
+Set persistent: 18 size: 8192 persistent_mem: 32768 shape: torch.Size([4096])
+Set persistent: 26 size: 8192 persistent_mem: 40960 shape: torch.Size([4096])
+Set persistent: 27 size: 8192 persistent_mem: 49152 shape: torch.Size([4096])
+Set persistent: 206 size: 8192 persistent_mem: 57344 shape: torch.Size([4096])
+Set persistent: 35 size: 8192 persistent_mem: 65536 shape: torch.Size([4096])
+Set persistent: 44 size: 8192 persistent_mem: 73728 shape: torch.Size([4096])
+Set persistent: 54 size: 8192 persistent_mem: 81920 shape: torch.Size([4096])
+Set persistent: 287 size: 8192 persistent_mem: 90112 shape: torch.Size([4096])
+Set persistent: 36 size: 8192 persistent_mem: 98304 shape: torch.Size([4096])
+Set persistent: 45 size: 8192 persistent_mem: 106496 shape: torch.Size([4096])
+Set persistent: 152 size: 8192 persistent_mem: 114688 shape: torch.Size([4096])
+Set persistent: 53 size: 8192 persistent_mem: 122880 shape: torch.Size([4096])
+Set persistent: 144 size: 8192 persistent_mem: 131072 shape: torch.Size([4096])
+Set persistent: 180 size: 8192 persistent_mem: 139264 shape: torch.Size([4096])
+Set persistent: 72 size: 8192 persistent_mem: 147456 shape: torch.Size([4096])
+Set persistent: 279 size: 8192 persistent_mem: 155648 shape: torch.Size([4096])
+Set persistent: 63 size: 8192 persistent_mem: 163840 shape: torch.Size([4096])
+Set persistent: 107 size: 8192 persistent_mem: 172032 shape: torch.Size([4096])
+Set persistent: 89 size: 8192 persistent_mem: 180224 shape: torch.Size([4096])
+Set persistent: 99 size: 8192 persistent_mem: 188416 shape: torch.Size([4096])
+Set persistent: 80 size: 8192 persistent_mem: 196608 shape: torch.Size([4096])
+Set persistent: 62 size: 8192 persistent_mem: 204800 shape: torch.Size([4096])
+Set persistent: 162 size: 8192 persistent_mem: 212992 shape: torch.Size([4096])
+Set persistent: 143 size: 8192 persistent_mem: 221184 shape: torch.Size([4096])
+Set persistent: 216 size: 8192 persistent_mem: 229376 shape: torch.Size([4096])
+Set persistent: 288 size: 8192 persistent_mem: 237568 shape: torch.Size([4096])
+Set persistent: 71 size: 8192 persistent_mem: 245760 shape: torch.Size([4096])
+Set persistent: 260 size: 8192 persistent_mem: 253952 shape: torch.Size([4096])
+Set persistent: 98 size: 8192 persistent_mem: 262144 shape: torch.Size([4096])
+Set persistent: 188 size: 8192 persistent_mem: 270336 shape: torch.Size([4096])
+Set persistent: 289 size: 8192 persistent_mem: 278528 shape: torch.Size([4096])
+Set persistent: 153 size: 8192 persistent_mem: 286720 shape: torch.Size([4096])
+Set persistent: 125 size: 8192 persistent_mem: 294912 shape: torch.Size([4096])
+Set persistent: 207 size: 8192 persistent_mem: 303104 shape: torch.Size([4096])
+Set persistent: 108 size: 8192 persistent_mem: 311296 shape: torch.Size([4096])
+Set persistent: 179 size: 8192 persistent_mem: 319488 shape: torch.Size([4096])
+Set persistent: 170 size: 8192 persistent_mem: 327680 shape: torch.Size([4096])
+Set persistent: 233 size: 8192 persistent_mem: 335872 shape: torch.Size([4096])
+Set persistent: 161 size: 8192 persistent_mem: 344064 shape: torch.Size([4096])
+Set persistent: 197 size: 8192 persistent_mem: 352256 shape: torch.Size([4096])
+Set persistent: 171 size: 8192 persistent_mem: 360448 shape: torch.Size([4096])
+Set persistent: 242 size: 8192 persistent_mem: 368640 shape: torch.Size([4096])
+Set persistent: 134 size: 8192 persistent_mem: 376832 shape: torch.Size([4096])
+Set persistent: 215 size: 8192 persistent_mem: 385024 shape: torch.Size([4096])
+Set persistent: 198 size: 8192 persistent_mem: 393216 shape: torch.Size([4096])
+Set persistent: 278 size: 8192 persistent_mem: 401408 shape: torch.Size([4096])
+Set persistent: 225 size: 8192 persistent_mem: 409600 shape: torch.Size([4096])
+Set persistent: 243 size: 8192 persistent_mem: 417792 shape: torch.Size([4096])
+Set persistent: 189 size: 8192 persistent_mem: 425984 shape: torch.Size([4096])
+Set persistent: 117 size: 8192 persistent_mem: 434176 shape: torch.Size([4096])
+Set persistent: 116 size: 8192 persistent_mem: 442368 shape: torch.Size([4096])
+Set persistent: 135 size: 8192 persistent_mem: 450560 shape: torch.Size([4096])
+Set persistent: 252 size: 8192 persistent_mem: 458752 shape: torch.Size([4096])
+Set persistent: 81 size: 8192 persistent_mem: 466944 shape: torch.Size([4096])
+Set persistent: 261 size: 8192 persistent_mem: 475136 shape: torch.Size([4096])
+Set persistent: 269 size: 8192 persistent_mem: 483328 shape: torch.Size([4096])
+Set persistent: 126 size: 8192 persistent_mem: 491520 shape: torch.Size([4096])
+Set persistent: 234 size: 8192 persistent_mem: 499712 shape: torch.Size([4096])
+Set persistent: 224 size: 8192 persistent_mem: 507904 shape: torch.Size([4096])
+Set persistent: 270 size: 8192 persistent_mem: 516096 shape: torch.Size([4096])
+Set persistent: 90 size: 8192 persistent_mem: 524288 shape: torch.Size([4096])
+Set persistent: 251 size: 8192 persistent_mem: 532480 shape: torch.Size([4096])
+Set persistent: 3 size: 8388608 persistent_mem: 8921088 shape: torch.Size([1024, 4096])
+Set persistent: 2 size: 8388608 persistent_mem: 17309696 shape: torch.Size([1024, 4096])
+Set persistent: 12 size: 8388608 persistent_mem: 25698304 shape: torch.Size([1024, 4096])
+Set persistent: 11 size: 8388608 persistent_mem: 34086912 shape: torch.Size([1024, 4096])
+Set persistent: 20 size: 8388608 persistent_mem: 42475520 shape: torch.Size([1024, 4096])
+Set persistent: 21 size: 8388608 persistent_mem: 50864128 shape: torch.Size([1024, 4096])
+Set persistent: 30 size: 8388608 persistent_mem: 59252736 shape: torch.Size([1024, 4096])
+Set persistent: 57 size: 8388608 persistent_mem: 67641344 shape: torch.Size([1024, 4096])
+Set persistent: 29 size: 8388608 persistent_mem: 76029952 shape: torch.Size([1024, 4096])
+Set persistent: 137 size: 8388608 persistent_mem: 84418560 shape: torch.Size([1024, 4096])
+Set persistent: 38 size: 8388608 persistent_mem: 92807168 shape: torch.Size([1024, 4096])
+Set persistent: 146 size: 8388608 persistent_mem: 101195776 shape: torch.Size([1024, 4096])
+Set persistent: 56 size: 8388608 persistent_mem: 109584384 shape: torch.Size([1024, 4096])
+Set persistent: 47 size: 8388608 persistent_mem: 117972992 shape: torch.Size([1024, 4096])
+Set persistent: 39 size: 8388608 persistent_mem: 126361600 shape: torch.Size([1024, 4096])
+Set persistent: 48 size: 8388608 persistent_mem: 134750208 shape: torch.Size([1024, 4096])
+Set persistent: 92 size: 8388608 persistent_mem: 143138816 shape: torch.Size([1024, 4096])
+Set persistent: 75 size: 8388608 persistent_mem: 151527424 shape: torch.Size([1024, 4096])
+Set persistent: 156 size: 8388608 persistent_mem: 159916032 shape: torch.Size([1024, 4096])
+Set persistent: 66 size: 8388608 persistent_mem: 168304640 shape: torch.Size([1024, 4096])
+Set persistent: 129 size: 8388608 persistent_mem: 176693248 shape: torch.Size([1024, 4096])
+Set persistent: 182 size: 8388608 persistent_mem: 185081856 shape: torch.Size([1024, 4096])
+Set persistent: 201 size: 8388608 persistent_mem: 193470464 shape: torch.Size([1024, 4096])
+Set persistent: 254 size: 8388608 persistent_mem: 201859072 shape: torch.Size([1024, 4096])
+Set persistent: 174 size: 8388608 persistent_mem: 210247680 shape: torch.Size([1024, 4096])
+Set persistent: 228 size: 8388608 persistent_mem: 218636288 shape: torch.Size([1024, 4096])
+Set persistent: 281 size: 8388608 persistent_mem: 227024896 shape: torch.Size([1024, 4096])
+Set persistent: 273 size: 8388608 persistent_mem: 235413504 shape: torch.Size([1024, 4096])
+Set persistent: 84 size: 8388608 persistent_mem: 243802112 shape: torch.Size([1024, 4096])
+Set persistent: 74 size: 8388608 persistent_mem: 252190720 shape: torch.Size([1024, 4096])
+Set persistent: 93 size: 8388608 persistent_mem: 260579328 shape: torch.Size([1024, 4096])
+Set persistent: 192 size: 8388608 persistent_mem: 268967936 shape: torch.Size([1024, 4096])
+Set persistent: 183 size: 8388608 persistent_mem: 277356544 shape: torch.Size([1024, 4096])
+Set persistent: 102 size: 8388608 persistent_mem: 285745152 shape: torch.Size([1024, 4096])
+Set persistent: 101 size: 8388608 persistent_mem: 294133760 shape: torch.Size([1024, 4096])
+Set persistent: 128 size: 8388608 persistent_mem: 302522368 shape: torch.Size([1024, 4096])
+Set persistent: 237 size: 8388608 persistent_mem: 310910976 shape: torch.Size([1024, 4096])
+Set persistent: 83 size: 8388608 persistent_mem: 319299584 shape: torch.Size([1024, 4096])
+Set persistent: 245 size: 8388608 persistent_mem: 327688192 shape: torch.Size([1024, 4096])
+Set persistent: 65 size: 8388608 persistent_mem: 336076800 shape: torch.Size([1024, 4096])
+Set persistent: 264 size: 8388608 persistent_mem: 344465408 shape: torch.Size([1024, 4096])
+Set persistent: 119 size: 8388608 persistent_mem: 352854016 shape: torch.Size([1024, 4096])
+Set persistent: 272 size: 8388608 persistent_mem: 361242624 shape: torch.Size([1024, 4096])
+Set persistent: 147 size: 8388608 persistent_mem: 369631232 shape: torch.Size([1024, 4096])
+Set persistent: 164 size: 8388608 persistent_mem: 378019840 shape: torch.Size([1024, 4096])
+Set persistent: 155 size: 8388608 persistent_mem: 386408448 shape: torch.Size([1024, 4096])
+Set persistent: 282 size: 8388608 persistent_mem: 394797056 shape: torch.Size([1024, 4096])
+Set persistent: 165 size: 8388608 persistent_mem: 403185664 shape: torch.Size([1024, 4096])
+Set persistent: 138 size: 8388608 persistent_mem: 411574272 shape: torch.Size([1024, 4096])
+Set persistent: 111 size: 8388608 persistent_mem: 419962880 shape: torch.Size([1024, 4096])
+Set persistent: 263 size: 8388608 persistent_mem: 428351488 shape: torch.Size([1024, 4096])
+Set persistent: 218 size: 8388608 persistent_mem: 436740096 shape: torch.Size([1024, 4096])
+Set persistent: 255 size: 8388608 persistent_mem: 445128704 shape: torch.Size([1024, 4096])
+Set persistent: 236 size: 8388608 persistent_mem: 453517312 shape: torch.Size([1024, 4096])
+Set persistent: 246 size: 8388608 persistent_mem: 461905920 shape: torch.Size([1024, 4096])
+Set persistent: 173 size: 8388608 persistent_mem: 470294528 shape: torch.Size([1024, 4096])
+Set persistent: 110 size: 8388608 persistent_mem: 478683136 shape: torch.Size([1024, 4096])
+Set persistent: 191 size: 8388608 persistent_mem: 487071744 shape: torch.Size([1024, 4096])
+Set persistent: 209 size: 8388608 persistent_mem: 495460352 shape: torch.Size([1024, 4096])
+Set persistent: 219 size: 8388608 persistent_mem: 503848960 shape: torch.Size([1024, 4096])
+Set persistent: 200 size: 8388608 persistent_mem: 512237568 shape: torch.Size([1024, 4096])
+Set persistent: 120 size: 8388608 persistent_mem: 520626176 shape: torch.Size([1024, 4096])
+Set persistent: 210 size: 8388608 persistent_mem: 529014784 shape: torch.Size([1024, 4096])
+Set persistent: 227 size: 8388608 persistent_mem: 537403392 shape: torch.Size([1024, 4096])
+Set persistent: 1 size: 33554432 persistent_mem: 570957824 shape: torch.Size([4096, 4096])
+Set persistent: 4 size: 33554432 persistent_mem: 604512256 shape: torch.Size([4096, 4096])
+Set persistent: 10 size: 33554432 persistent_mem: 638066688 shape: torch.Size([4096, 4096])
+Set persistent: 13 size: 33554432 persistent_mem: 671621120 shape: torch.Size([4096, 4096])
+Set persistent: 19 size: 33554432 persistent_mem: 705175552 shape: torch.Size([4096, 4096])
+Set persistent: 22 size: 33554432 persistent_mem: 738729984 shape: torch.Size([4096, 4096])
+Set persistent: 31 size: 33554432 persistent_mem: 772284416 shape: torch.Size([4096, 4096])
+Set persistent: 28 size: 33554432 persistent_mem: 805838848 shape: torch.Size([4096, 4096])
+Set persistent: 37 size: 33554432 persistent_mem: 839393280 shape: torch.Size([4096, 4096])
+Set persistent: 154 size: 33554432 persistent_mem: 872947712 shape: torch.Size([4096, 4096])
+Set persistent: 247 size: 33554432 persistent_mem: 906502144 shape: torch.Size([4096, 4096])
+Set persistent: 238 size: 33554432 persistent_mem: 940056576 shape: torch.Size([4096, 4096])
+Set persistent: 49 size: 33554432 persistent_mem: 973611008 shape: torch.Size([4096, 4096])
+Set persistent: 46 size: 33554432 persistent_mem: 1007165440 shape: torch.Size([4096, 4096])
+Set persistent: 40 size: 33554432 persistent_mem: 1040719872 shape: torch.Size([4096, 4096])
+Set persistent: 85 size: 33554432 persistent_mem: 1074274304 shape: torch.Size([4096, 4096])
+Set persistent: 253 size: 33554432 persistent_mem: 1107828736 shape: torch.Size([4096, 4096])
+Set persistent: 58 size: 33554432 persistent_mem: 1141383168 shape: torch.Size([4096, 4096])
+Set persistent: 76 size: 33554432 persistent_mem: 1174937600 shape: torch.Size([4096, 4096])
+Set persistent: 283 size: 33554432 persistent_mem: 1208492032 shape: torch.Size([4096, 4096])
+Set persistent: 148 size: 33554432 persistent_mem: 1242046464 shape: torch.Size([4096, 4096])
+Set persistent: 136 size: 33554432 persistent_mem: 1275600896 shape: torch.Size([4096, 4096])
+Set persistent: 55 size: 33554432 persistent_mem: 1309155328 shape: torch.Size([4096, 4096])
+Set persistent: 100 size: 33554432 persistent_mem: 1342709760 shape: torch.Size([4096, 4096])
+Set persistent: 139 size: 33554432 persistent_mem: 1376264192 shape: torch.Size([4096, 4096])
+Set persistent: 166 size: 33554432 persistent_mem: 1409818624 shape: torch.Size([4096, 4096])
+Set persistent: 91 size: 33554432 persistent_mem: 1443373056 shape: torch.Size([4096, 4096])
+Set persistent: 175 size: 33554432 persistent_mem: 1476927488 shape: torch.Size([4096, 4096])
+Set persistent: 184 size: 33554432 persistent_mem: 1510481920 shape: torch.Size([4096, 4096])
+Set persistent: 73 size: 33554432 persistent_mem: 1544036352 shape: torch.Size([4096, 4096])
+Set persistent: 103 size: 33554432 persistent_mem: 1577590784 shape: torch.Size([4096, 4096])
+Set persistent: 130 size: 33554432 persistent_mem: 1611145216 shape: torch.Size([4096, 4096])
+Set persistent: 118 size: 33554432 persistent_mem: 1644699648 shape: torch.Size([4096, 4096])
+Set persistent: 112 size: 33554432 persistent_mem: 1678254080 shape: torch.Size([4096, 4096])
+Set persistent: 199 size: 33554432 persistent_mem: 1711808512 shape: torch.Size([4096, 4096])
+Set persistent: 181 size: 33554432 persistent_mem: 1745362944 shape: torch.Size([4096, 4096])
+Set persistent: 202 size: 33554432 persistent_mem: 1778917376 shape: torch.Size([4096, 4096])
+Set persistent: 94 size: 33554432 persistent_mem: 1812471808 shape: torch.Size([4096, 4096])
+Set persistent: 271 size: 33554432 persistent_mem: 1846026240 shape: torch.Size([4096, 4096])
+Set persistent: 145 size: 33554432 persistent_mem: 1879580672 shape: torch.Size([4096, 4096])
+Set persistent: 193 size: 33554432 persistent_mem: 1913135104 shape: torch.Size([4096, 4096])
+Set persistent: 226 size: 33554432 persistent_mem: 1946689536 shape: torch.Size([4096, 4096])
+Set persistent: 235 size: 33554432 persistent_mem: 1980243968 shape: torch.Size([4096, 4096])
+Set persistent: 157 size: 33554432 persistent_mem: 2013798400 shape: torch.Size([4096, 4096])
+Set persistent: 220 size: 33554432 persistent_mem: 2047352832 shape: torch.Size([4096, 4096])
+Set persistent: 64 size: 33554432 persistent_mem: 2080907264 shape: torch.Size([4096, 4096])
+Set persistent: 109 size: 33554432 persistent_mem: 2114461696 shape: torch.Size([4096, 4096])
+Set persistent: 82 size: 33554432 persistent_mem: 2148016128 shape: torch.Size([4096, 4096])
+Set persistent: 280 size: 33554432 persistent_mem: 2181570560 shape: torch.Size([4096, 4096])
+Set persistent: 262 size: 33554432 persistent_mem: 2215124992 shape: torch.Size([4096, 4096])
+Set persistent: 67 size: 33554432 persistent_mem: 2248679424 shape: torch.Size([4096, 4096])
+Set persistent: 190 size: 33554432 persistent_mem: 2282233856 shape: torch.Size([4096, 4096])
+Set persistent: 127 size: 33554432 persistent_mem: 2315788288 shape: torch.Size([4096, 4096])
+Set persistent: 172 size: 33554432 persistent_mem: 2349342720 shape: torch.Size([4096, 4096])
+Set persistent: 121 size: 33554432 persistent_mem: 2382897152 shape: torch.Size([4096, 4096])
+Set persistent: 244 size: 33554432 persistent_mem: 2416451584 shape: torch.Size([4096, 4096])
+Set persistent: 208 size: 33554432 persistent_mem: 2450006016 shape: torch.Size([4096, 4096])
+Set persistent: 229 size: 33554432 persistent_mem: 2483560448 shape: torch.Size([4096, 4096])
+Set persistent: 274 size: 33554432 persistent_mem: 2517114880 shape: torch.Size([4096, 4096])
+Set persistent: 211 size: 33554432 persistent_mem: 2550669312 shape: torch.Size([4096, 4096])
+Set persistent: 265 size: 33554432 persistent_mem: 2584223744 shape: torch.Size([4096, 4096])
+Set persistent: 163 size: 33554432 persistent_mem: 2617778176 shape: torch.Size([4096, 4096])
+Set persistent: 256 size: 33554432 persistent_mem: 2651332608 shape: torch.Size([4096, 4096])
+Set persistent: 217 size: 33554432 persistent_mem: 2684887040 shape: torch.Size([4096, 4096])
+Set persistent: 5 size: 117440512 persistent_mem: 2802327552 shape: torch.Size([14336, 4096])
+Set persistent: 7 size: 117440512 persistent_mem: 2919768064 shape: torch.Size([14336, 4096])
+Set persistent: 6 size: 117440512 persistent_mem: 3037208576 shape: torch.Size([4096, 14336])
+Set persistent: 14 size: 117440512 persistent_mem: 3154649088 shape: torch.Size([14336, 4096])
+Set persistent: 15 size: 117440512 persistent_mem: 3272089600 shape: torch.Size([4096, 14336])
+Set persistent: 16 size: 117440512 persistent_mem: 3389530112 shape: torch.Size([14336, 4096])
+Set persistent: 23 size: 117440512 persistent_mem: 3506970624 shape: torch.Size([14336, 4096])
+Set persistent: 25 size: 117440512 persistent_mem: 3624411136 shape: torch.Size([14336, 4096])
+Set persistent: 24 size: 117440512 persistent_mem: 3741851648 shape: torch.Size([4096, 14336])
+Set persistent: 32 size: 117440512 persistent_mem: 3859292160 shape: torch.Size([14336, 4096])
+Set persistent: 33 size: 117440512 persistent_mem: 3976732672 shape: torch.Size([4096, 14336])
+Set persistent: 34 size: 117440512 persistent_mem: 4094173184 shape: torch.Size([14336, 4096])
+Set persistent: 43 size: 117440512 persistent_mem: 4211613696 shape: torch.Size([14336, 4096])
+Set persistent: 178 size: 117440512 persistent_mem: 4329054208 shape: torch.Size([14336, 4096])
+Set persistent: 142 size: 117440512 persistent_mem: 4446494720 shape: torch.Size([14336, 4096])
+Set persistent: 41 size: 117440512 persistent_mem: 4563935232 shape: torch.Size([14336, 4096])
+Set persistent: 50 size: 117440512 persistent_mem: 4681375744 shape: torch.Size([14336, 4096])
+Set persistent: 52 size: 117440512 persistent_mem: 4798816256 shape: torch.Size([14336, 4096])
+Set persistent: 77 size: 117440512 persistent_mem: 4916256768 shape: torch.Size([14336, 4096])
+Set persistent: 42 size: 117440512 persistent_mem: 5033697280 shape: torch.Size([4096, 14336])
+Set persistent: 59 size: 117440512 persistent_mem: 5151137792 shape: torch.Size([14336, 4096])
+Set persistent: 60 size: 117440512 persistent_mem: 5268578304 shape: torch.Size([4096, 14336])
+Set persistent: 51 size: 117440512 persistent_mem: 5386018816 shape: torch.Size([4096, 14336])
+Set persistent: 88 size: 117440512 persistent_mem: 5503459328 shape: torch.Size([14336, 4096])
+Set persistent: 239 size: 117440512 persistent_mem: 5620899840 shape: torch.Size([14336, 4096])
+Set persistent: 61 size: 117440512 persistent_mem: 5738340352 shape: torch.Size([14336, 4096])
+Set persistent: 78 size: 117440512 persistent_mem: 5855780864 shape: torch.Size([4096, 14336])
+Set persistent: 160 size: 117440512 persistent_mem: 5973221376 shape: torch.Size([14336, 4096])
+Set persistent: 214 size: 117440512 persistent_mem: 6090661888 shape: torch.Size([14336, 4096])
+Set persistent: 141 size: 117440512 persistent_mem: 6208102400 shape: torch.Size([4096, 14336])
+Set persistent: 97 size: 117440512 persistent_mem: 6325542912 shape: torch.Size([14336, 4096])
+Set persistent: 230 size: 117440512 persistent_mem: 6442983424 shape: torch.Size([14336, 4096])
+Set persistent: 151 size: 117440512 persistent_mem: 6560423936 shape: torch.Size([14336, 4096])
+Set persistent: 284 size: 117440512 persistent_mem: 6677864448 shape: torch.Size([14336, 4096])
+Set persistent: 150 size: 117440512 persistent_mem: 6795304960 shape: torch.Size([4096, 14336])
+Set persistent: 114 size: 117440512 persistent_mem: 6912745472 shape: torch.Size([4096, 14336])
+Set persistent: 158 size: 117440512 persistent_mem: 7030185984 shape: torch.Size([14336, 4096])
+Set persistent: 185 size: 117440512 persistent_mem: 7147626496 shape: torch.Size([14336, 4096])
+Set persistent: 240 size: 117440512 persistent_mem: 7265067008 shape: torch.Size([4096, 14336])
+Set persistent: 104 size: 117440512 persistent_mem: 7382507520 shape: torch.Size([14336, 4096])
+Set persistent: 204 size: 117440512 persistent_mem: 7499948032 shape: torch.Size([4096, 14336])
+Set persistent: 86 size: 117440512 persistent_mem: 7617388544 shape: torch.Size([14336, 4096])
+Set persistent: 70 size: 117440512 persistent_mem: 7734829056 shape: torch.Size([14336, 4096])
+Set persistent: 79 size: 117440512 persistent_mem: 7852269568 shape: torch.Size([14336, 4096])
+Set persistent: 176 size: 117440512 persistent_mem: 7969710080 shape: torch.Size([14336, 4096])
+Set persistent: 277 size: 117440512 persistent_mem: 8087150592 shape: torch.Size([14336, 4096])
+Set persistent: 168 size: 117440512 persistent_mem: 8204591104 shape: torch.Size([4096, 14336])
+Set persistent: 169 size: 117440512 persistent_mem: 8322031616 shape: torch.Size([14336, 4096])
+Set persistent: 232 size: 117440512 persistent_mem: 8439472128 shape: torch.Size([14336, 4096])
+Set persistent: 122 size: 117440512 persistent_mem: 8556912640 shape: torch.Size([14336, 4096])
+Set persistent: 248 size: 117440512 persistent_mem: 8674353152 shape: torch.Size([14336, 4096])
+Set persistent: 69 size: 117440512 persistent_mem: 8791793664 shape: torch.Size([4096, 14336])
+Set persistent: 95 size: 117440512 persistent_mem: 8909234176 shape: torch.Size([14336, 4096])
+Set persistent: 195 size: 117440512 persistent_mem: 9026674688 shape: torch.Size([4096, 14336])
+Set persistent: 167 size: 117440512 persistent_mem: 9144115200 shape: torch.Size([14336, 4096])
+Set persistent: 257 size: 117440512 persistent_mem: 9261555712 shape: torch.Size([14336, 4096])
+Set persistent: 131 size: 117440512 persistent_mem: 9378996224 shape: torch.Size([14336, 4096])
+Set persistent: 241 size: 117440512 persistent_mem: 9496436736 shape: torch.Size([14336, 4096])
+Set persistent: 96 size: 117440512 persistent_mem: 9613877248 shape: torch.Size([4096, 14336])
+Set persistent: 205 size: 117440512 persistent_mem: 9731317760 shape: torch.Size([14336, 4096])
+Set persistent: 149 size: 117440512 persistent_mem: 9848758272 shape: torch.Size([14336, 4096])
+Set persistent: 177 size: 117440512 persistent_mem: 9966198784 shape: torch.Size([4096, 14336])
+Set persistent: 68 size: 117440512 persistent_mem: 10083639296 shape: torch.Size([14336, 4096])
+Set persistent: 123 size: 117440512 persistent_mem: 10201079808 shape: torch.Size([4096, 14336])
+Set persistent: 258 size: 117440512 persistent_mem: 10318520320 shape: torch.Size([4096, 14336])
+Set persistent: 266 size: 117440512 persistent_mem: 10435960832 shape: torch.Size([14336, 4096])
+Set persistent: 115 size: 117440512 persistent_mem: 10553401344 shape: torch.Size([14336, 4096])
+Set persistent: 113 size: 117440512 persistent_mem: 10670841856 shape: torch.Size([14336, 4096])
+Set persistent: 159 size: 117440512 persistent_mem: 10788282368 shape: torch.Size([4096, 14336])
+Set persistent: 194 size: 117440512 persistent_mem: 10905722880 shape: torch.Size([14336, 4096])
+Set persistent: 132 size: 117440512 persistent_mem: 11023163392 shape: torch.Size([4096, 14336])
+Set persistent: 212 size: 117440512 persistent_mem: 11140603904 shape: torch.Size([14336, 4096])
+Set persistent: 249 size: 117440512 persistent_mem: 11258044416 shape: torch.Size([4096, 14336])
+Set persistent: 221 size: 117440512 persistent_mem: 11375484928 shape: torch.Size([14336, 4096])
+Set persistent: 124 size: 117440512 persistent_mem: 11492925440 shape: torch.Size([14336, 4096])
+Set persistent: 275 size: 117440512 persistent_mem: 11610365952 shape: torch.Size([14336, 4096])
+Set persistent: 222 size: 117440512 persistent_mem: 11727806464 shape: torch.Size([4096, 14336])
+Set persistent: 187 size: 117440512 persistent_mem: 11845246976 shape: torch.Size([14336, 4096])
+Set persistent: 87 size: 117440512 persistent_mem: 11962687488 shape: torch.Size([4096, 14336])
+Set persistent: 203 size: 117440512 persistent_mem: 12080128000 shape: torch.Size([14336, 4096])
+Set persistent: 133 size: 117440512 persistent_mem: 12197568512 shape: torch.Size([14336, 4096])
+Set persistent: 268 size: 117440512 persistent_mem: 12315009024 shape: torch.Size([14336, 4096])
+Set persistent: 286 size: 117440512 persistent_mem: 12432449536 shape: torch.Size([14336, 4096])
+Set persistent: 259 size: 117440512 persistent_mem: 12549890048 shape: torch.Size([14336, 4096])
+Set persistent: 140 size: 117440512 persistent_mem: 12667330560 shape: torch.Size([14336, 4096])
+Set persistent: 223 size: 117440512 persistent_mem: 12784771072 shape: torch.Size([14336, 4096])
+Set persistent: 196 size: 117440512 persistent_mem: 12902211584 shape: torch.Size([14336, 4096])
+Set persistent: 186 size: 117440512 persistent_mem: 13019652096 shape: torch.Size([4096, 14336])
+Set persistent: 213 size: 117440512 persistent_mem: 13137092608 shape: torch.Size([4096, 14336])
+Set persistent: 105 size: 117440512 persistent_mem: 13254533120 shape: torch.Size([4096, 14336])
+Set persistent: 106 size: 117440512 persistent_mem: 13371973632 shape: torch.Size([14336, 4096])
+Set persistent: 285 size: 117440512 persistent_mem: 13489414144 shape: torch.Size([4096, 14336])
+Set persistent: 276 size: 117440512 persistent_mem: 13606854656 shape: torch.Size([4096, 14336])
+Set persistent: 267 size: 117440512 persistent_mem: 13724295168 shape: torch.Size([4096, 14336])
+Set persistent: 231 size: 117440512 persistent_mem: 13841735680 shape: torch.Size([4096, 14336])
+Set persistent: 250 size: 117440512 persistent_mem: 13959176192 shape: torch.Size([14336, 4096])
+Set persistent: 290 size: 1073741824 persistent_mem: 15032918016 shape: torch.Size([131072, 4096])
+Set persistent: 0 size: 1073741824 persistent_mem: 16106659840 shape: torch.Size([131072, 4096])
+2025-12-17 17:49:50,273 - root - INFO - Step: 10 | Loss: 9.94 | Tokens per second: 459.27 | Training tokens per second (%): 40.84 | MFU (%): 0.60 | TFLOPs: 5.92 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:50,273 - root - INFO - Step: 10 | Loss: 10.13 | Tokens per second: 459.27 | Training tokens per second (%): 30.87 | MFU (%): 0.60 | TFLOPs: 5.92 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:50,273 - root - INFO - Step: 10 | Loss: 10.23 | Tokens per second: 459.27 | Training tokens per second (%): 39.41 | MFU (%): 0.60 | TFLOPs: 5.92 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:50,273 - root - INFO - Step: 10 | Loss: 10.53 | Tokens per second: 459.27 | Training tokens per second (%): 27.79 | MFU (%): 0.60 | TFLOPs: 5.92 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:51,955 - root - INFO - Step: 15 | Loss: 8.97 | Tokens per second: 24368.44 | Training tokens per second (%): 27.36 | MFU (%): 31.75 | TFLOPs: 313.99 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:51,955 - root - INFO - Step: 15 | Loss: 9.55 | Tokens per second: 24368.45 | Training tokens per second (%): 25.31 | MFU (%): 31.75 | TFLOPs: 313.99 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:51,955 - root - INFO - Step: 15 | Loss: 10.14 | Tokens per second: 24368.51 | Training tokens per second (%): 52.16 | MFU (%): 31.75 | TFLOPs: 314.00 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:51,955 - root - INFO - Step: 15 | Loss: 9.35 | Tokens per second: 24368.36 | Training tokens per second (%): 31.92 | MFU (%): 31.75 | TFLOPs: 313.99 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:53,638 - root - INFO - Step: 20 | Loss: 9.63 | Tokens per second: 24336.47 | Training tokens per second (%): 40.03 | MFU (%): 31.71 | TFLOPs: 313.58 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:53,638 - root - INFO - Step: 20 | Loss: 9.46 | Tokens per second: 24336.42 | Training tokens per second (%): 36.23 | MFU (%): 31.71 | TFLOPs: 313.58 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:53,638 - root - INFO - Step: 20 | Loss: 8.41 | Tokens per second: 24336.38 | Training tokens per second (%): 20.62 | MFU (%): 31.71 | TFLOPs: 313.58 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:53,638 - root - INFO - Step: 20 | Loss: 8.60 | Tokens per second: 24336.46 | Training tokens per second (%): 30.31 | MFU (%): 31.71 | TFLOPs: 313.58 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:55,317 - root - INFO - Step: 25 | Loss: 9.31 | Tokens per second: 24412.18 | Training tokens per second (%): 25.36 | MFU (%): 31.81 | TFLOPs: 314.56 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:55,317 - root - INFO - Step: 25 | Loss: 9.09 | Tokens per second: 24412.24 | Training tokens per second (%): 26.37 | MFU (%): 31.81 | TFLOPs: 314.56 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:55,317 - root - INFO - Step: 25 | Loss: 8.77 | Tokens per second: 24412.13 | Training tokens per second (%): 30.03 | MFU (%): 31.81 | TFLOPs: 314.56 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:55,317 - root - INFO - Step: 25 | Loss: 9.66 | Tokens per second: 24412.27 | Training tokens per second (%): 17.13 | MFU (%): 31.81 | TFLOPs: 314.56 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:57,012 - root - INFO - Step: 30 | Loss: 9.29 | Tokens per second: 24170.44 | Training tokens per second (%): 46.38 | MFU (%): 31.49 | TFLOPs: 311.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:57,012 - root - INFO - Step: 30 | Loss: 8.85 | Tokens per second: 24170.47 | Training tokens per second (%): 34.33 | MFU (%): 31.49 | TFLOPs: 311.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:57,012 - root - INFO - Step: 30 | Loss: 8.88 | Tokens per second: 24170.44 | Training tokens per second (%): 38.74 | MFU (%): 31.49 | TFLOPs: 311.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:57,012 - root - INFO - Step: 30 | Loss: 9.19 | Tokens per second: 24170.23 | Training tokens per second (%): 34.40 | MFU (%): 31.49 | TFLOPs: 311.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:58,716 - root - INFO - Step: 35 | Loss: 8.80 | Tokens per second: 24049.12 | Training tokens per second (%): 39.22 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:58,716 - root - INFO - Step: 35 | Loss: 8.10 | Tokens per second: 24049.20 | Training tokens per second (%): 42.95 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:58,716 - root - INFO - Step: 35 | Loss: 8.91 | Tokens per second: 24049.19 | Training tokens per second (%): 30.36 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:49:58,716 - root - INFO - Step: 35 | Loss: 8.53 | Tokens per second: 24049.14 | Training tokens per second (%): 29.41 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:00,414 - root - INFO - Step: 40 | Loss: 8.72 | Tokens per second: 24138.70 | Training tokens per second (%): 29.43 | MFU (%): 31.45 | TFLOPs: 311.03 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:00,414 - root - INFO - Step: 40 | Loss: 8.66 | Tokens per second: 24138.71 | Training tokens per second (%): 46.49 | MFU (%): 31.45 | TFLOPs: 311.03 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:00,414 - root - INFO - Step: 40 | Loss: 8.82 | Tokens per second: 24138.77 | Training tokens per second (%): 33.12 | MFU (%): 31.45 | TFLOPs: 311.04 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:00,414 - root - INFO - Step: 40 | Loss: 8.50 | Tokens per second: 24138.77 | Training tokens per second (%): 22.34 | MFU (%): 31.45 | TFLOPs: 311.04 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:02,125 - root - INFO - Step: 45 | Loss: 8.67 | Tokens per second: 23938.90 | Training tokens per second (%): 47.55 | MFU (%): 31.19 | TFLOPs: 308.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:02,125 - root - INFO - Step: 45 | Loss: 8.30 | Tokens per second: 23938.99 | Training tokens per second (%): 53.08 | MFU (%): 31.19 | TFLOPs: 308.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:02,125 - root - INFO - Step: 45 | Loss: 7.93 | Tokens per second: 23938.94 | Training tokens per second (%): 59.87 | MFU (%): 31.19 | TFLOPs: 308.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:02,125 - root - INFO - Step: 45 | Loss: 8.38 | Tokens per second: 23938.98 | Training tokens per second (%): 18.80 | MFU (%): 31.19 | TFLOPs: 308.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:03,831 - root - INFO - Step: 50 | Loss: 7.88 | Tokens per second: 24019.46 | Training tokens per second (%): 20.11 | MFU (%): 31.29 | TFLOPs: 309.50 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:03,831 - root - INFO - Step: 50 | Loss: 7.97 | Tokens per second: 24019.34 | Training tokens per second (%): 56.77 | MFU (%): 31.29 | TFLOPs: 309.50 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:03,831 - root - INFO - Step: 50 | Loss: 8.18 | Tokens per second: 24019.44 | Training tokens per second (%): 37.09 | MFU (%): 31.29 | TFLOPs: 309.50 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:03,831 - root - INFO - Step: 50 | Loss: 8.03 | Tokens per second: 24019.38 | Training tokens per second (%): 50.39 | MFU (%): 31.29 | TFLOPs: 309.50 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:05,578 - root - INFO - Step: 55 | Loss: 8.79 | Tokens per second: 23453.84 | Training tokens per second (%): 43.58 | MFU (%): 30.56 | TFLOPs: 302.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:05,578 - root - INFO - Step: 55 | Loss: 8.05 | Tokens per second: 23453.87 | Training tokens per second (%): 28.41 | MFU (%): 30.56 | TFLOPs: 302.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:05,578 - root - INFO - Step: 55 | Loss: 8.16 | Tokens per second: 23453.79 | Training tokens per second (%): 42.23 | MFU (%): 30.56 | TFLOPs: 302.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:05,578 - root - INFO - Step: 55 | Loss: 7.96 | Tokens per second: 23453.60 | Training tokens per second (%): 46.30 | MFU (%): 30.56 | TFLOPs: 302.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:07,296 - root - INFO - Step: 60 | Loss: 7.62 | Tokens per second: 23857.51 | Training tokens per second (%): 35.04 | MFU (%): 31.08 | TFLOPs: 307.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:07,296 - root - INFO - Step: 60 | Loss: 8.16 | Tokens per second: 23857.57 | Training tokens per second (%): 42.74 | MFU (%): 31.08 | TFLOPs: 307.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:07,296 - root - INFO - Step: 60 | Loss: 8.15 | Tokens per second: 23857.49 | Training tokens per second (%): 60.13 | MFU (%): 31.08 | TFLOPs: 307.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:07,296 - root - INFO - Step: 60 | Loss: 7.72 | Tokens per second: 23857.68 | Training tokens per second (%): 49.20 | MFU (%): 31.08 | TFLOPs: 307.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:09,002 - root - INFO - Step: 65 | Loss: 8.13 | Tokens per second: 24021.60 | Training tokens per second (%): 44.82 | MFU (%): 31.30 | TFLOPs: 309.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:09,002 - root - INFO - Step: 65 | Loss: 8.62 | Tokens per second: 24021.54 | Training tokens per second (%): 32.40 | MFU (%): 31.30 | TFLOPs: 309.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:09,002 - root - INFO - Step: 65 | Loss: 8.52 | Tokens per second: 24021.62 | Training tokens per second (%): 34.57 | MFU (%): 31.30 | TFLOPs: 309.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:09,002 - root - INFO - Step: 65 | Loss: 7.80 | Tokens per second: 24021.47 | Training tokens per second (%): 49.06 | MFU (%): 31.30 | TFLOPs: 309.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:10,681 - root - INFO - Step: 70 | Loss: 7.80 | Tokens per second: 24403.02 | Training tokens per second (%): 25.62 | MFU (%): 31.79 | TFLOPs: 314.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:10,681 - root - INFO - Step: 70 | Loss: 7.81 | Tokens per second: 24403.13 | Training tokens per second (%): 37.08 | MFU (%): 31.79 | TFLOPs: 314.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:10,681 - root - INFO - Step: 70 | Loss: 7.12 | Tokens per second: 24403.05 | Training tokens per second (%): 23.64 | MFU (%): 31.79 | TFLOPs: 314.44 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:10,681 - root - INFO - Step: 70 | Loss: 7.45 | Tokens per second: 24401.64 | Training tokens per second (%): 26.19 | MFU (%): 31.79 | TFLOPs: 314.42 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:12,377 - root - INFO - Step: 75 | Loss: 7.06 | Tokens per second: 24151.40 | Training tokens per second (%): 40.82 | MFU (%): 31.47 | TFLOPs: 311.20 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:12,377 - root - INFO - Step: 75 | Loss: 8.00 | Tokens per second: 24151.39 | Training tokens per second (%): 37.45 | MFU (%): 31.47 | TFLOPs: 311.20 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:12,378 - root - INFO - Step: 75 | Loss: 7.63 | Tokens per second: 24151.48 | Training tokens per second (%): 40.97 | MFU (%): 31.47 | TFLOPs: 311.20 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:12,378 - root - INFO - Step: 75 | Loss: 6.73 | Tokens per second: 24151.44 | Training tokens per second (%): 36.48 | MFU (%): 31.47 | TFLOPs: 311.20 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:14,078 - root - INFO - Step: 80 | Loss: 7.92 | Tokens per second: 24101.12 | Training tokens per second (%): 45.07 | MFU (%): 31.40 | TFLOPs: 310.55 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:14,078 - root - INFO - Step: 80 | Loss: 7.64 | Tokens per second: 24101.13 | Training tokens per second (%): 29.85 | MFU (%): 31.40 | TFLOPs: 310.55 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:14,078 - root - INFO - Step: 80 | Loss: 7.47 | Tokens per second: 24101.19 | Training tokens per second (%): 35.16 | MFU (%): 31.40 | TFLOPs: 310.55 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:14,078 - root - INFO - Step: 80 | Loss: 7.68 | Tokens per second: 24101.22 | Training tokens per second (%): 45.63 | MFU (%): 31.40 | TFLOPs: 310.55 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:15,777 - root - INFO - Step: 85 | Loss: 7.68 | Tokens per second: 24108.15 | Training tokens per second (%): 37.54 | MFU (%): 31.41 | TFLOPs: 310.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:15,777 - root - INFO - Step: 85 | Loss: 7.81 | Tokens per second: 24108.27 | Training tokens per second (%): 35.73 | MFU (%): 31.41 | TFLOPs: 310.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:15,777 - root - INFO - Step: 85 | Loss: 8.00 | Tokens per second: 24108.22 | Training tokens per second (%): 35.36 | MFU (%): 31.41 | TFLOPs: 310.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:15,777 - root - INFO - Step: 85 | Loss: 7.16 | Tokens per second: 24108.26 | Training tokens per second (%): 43.90 | MFU (%): 31.41 | TFLOPs: 310.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:17,463 - root - INFO - Step: 90 | Loss: 7.77 | Tokens per second: 24304.26 | Training tokens per second (%): 23.58 | MFU (%): 31.67 | TFLOPs: 313.17 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:17,463 - root - INFO - Step: 90 | Loss: 6.71 | Tokens per second: 24304.18 | Training tokens per second (%): 27.01 | MFU (%): 31.66 | TFLOPs: 313.17 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:17,463 - root - INFO - Step: 90 | Loss: 7.89 | Tokens per second: 24304.23 | Training tokens per second (%): 35.06 | MFU (%): 31.67 | TFLOPs: 313.17 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:17,463 - root - INFO - Step: 90 | Loss: 7.83 | Tokens per second: 24304.29 | Training tokens per second (%): 36.42 | MFU (%): 31.67 | TFLOPs: 313.17 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:19,173 - root - INFO - Step: 95 | Loss: 7.24 | Tokens per second: 23966.20 | Training tokens per second (%): 57.74 | MFU (%): 31.22 | TFLOPs: 308.81 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:19,173 - root - INFO - Step: 95 | Loss: 7.67 | Tokens per second: 23966.23 | Training tokens per second (%): 38.12 | MFU (%): 31.22 | TFLOPs: 308.81 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:19,173 - root - INFO - Step: 95 | Loss: 7.65 | Tokens per second: 23966.23 | Training tokens per second (%): 19.16 | MFU (%): 31.22 | TFLOPs: 308.81 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:19,173 - root - INFO - Step: 95 | Loss: 7.54 | Tokens per second: 23966.22 | Training tokens per second (%): 52.12 | MFU (%): 31.22 | TFLOPs: 308.81 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:20,899 - root - INFO - Step: 100 | Loss: 7.54 | Tokens per second: 23747.92 | Training tokens per second (%): 32.33 | MFU (%): 30.94 | TFLOPs: 306.00 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:20,899 - root - INFO - Step: 100 | Loss: 7.61 | Tokens per second: 23747.57 | Training tokens per second (%): 58.66 | MFU (%): 30.94 | TFLOPs: 305.99 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:20,899 - root - INFO - Step: 100 | Loss: 7.13 | Tokens per second: 23747.95 | Training tokens per second (%): 64.75 | MFU (%): 30.94 | TFLOPs: 306.00 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:20,899 - root - INFO - Step: 100 | Loss: 6.94 | Tokens per second: 23747.95 | Training tokens per second (%): 38.41 | MFU (%): 30.94 | TFLOPs: 306.00 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:22,618 - root - INFO - Step: 105 | Loss: 7.30 | Tokens per second: 23830.59 | Training tokens per second (%): 55.27 | MFU (%): 31.05 | TFLOPs: 307.06 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:22,618 - root - INFO - Step: 105 | Loss: 8.40 | Tokens per second: 23830.50 | Training tokens per second (%): 13.50 | MFU (%): 31.05 | TFLOPs: 307.06 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:22,618 - root - INFO - Step: 105 | Loss: 7.42 | Tokens per second: 23830.61 | Training tokens per second (%): 56.19 | MFU (%): 31.05 | TFLOPs: 307.06 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:22,618 - root - INFO - Step: 105 | Loss: 7.44 | Tokens per second: 23830.56 | Training tokens per second (%): 41.88 | MFU (%): 31.05 | TFLOPs: 307.06 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:24,323 - root - INFO - Step: 110 | Loss: 7.58 | Tokens per second: 24030.45 | Training tokens per second (%): 53.11 | MFU (%): 31.31 | TFLOPs: 309.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:24,323 - root - INFO - Step: 110 | Loss: 7.79 | Tokens per second: 24030.50 | Training tokens per second (%): 38.24 | MFU (%): 31.31 | TFLOPs: 309.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:24,323 - root - INFO - Step: 110 | Loss: 7.20 | Tokens per second: 24030.55 | Training tokens per second (%): 22.74 | MFU (%): 31.31 | TFLOPs: 309.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:24,323 - root - INFO - Step: 110 | Loss: 7.07 | Tokens per second: 24030.54 | Training tokens per second (%): 30.21 | MFU (%): 31.31 | TFLOPs: 309.64 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:26,058 - root - INFO - Step: 115 | Loss: 7.47 | Tokens per second: 23618.51 | Training tokens per second (%): 60.48 | MFU (%): 30.77 | TFLOPs: 304.33 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:26,058 - root - INFO - Step: 115 | Loss: 6.81 | Tokens per second: 23618.56 | Training tokens per second (%): 32.16 | MFU (%): 30.77 | TFLOPs: 304.33 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:26,058 - root - INFO - Step: 115 | Loss: 7.06 | Tokens per second: 23618.57 | Training tokens per second (%): 23.98 | MFU (%): 30.77 | TFLOPs: 304.33 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:26,058 - root - INFO - Step: 115 | Loss: 6.94 | Tokens per second: 23618.60 | Training tokens per second (%): 33.34 | MFU (%): 30.77 | TFLOPs: 304.33 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:27,755 - root - INFO - Step: 120 | Loss: 7.35 | Tokens per second: 24150.20 | Training tokens per second (%): 14.89 | MFU (%): 31.46 | TFLOPs: 311.18 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:27,755 - root - INFO - Step: 120 | Loss: 6.47 | Tokens per second: 24150.18 | Training tokens per second (%): 14.97 | MFU (%): 31.46 | TFLOPs: 311.18 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:27,755 - root - INFO - Step: 120 | Loss: 7.61 | Tokens per second: 24150.22 | Training tokens per second (%): 29.38 | MFU (%): 31.46 | TFLOPs: 311.18 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:27,755 - root - INFO - Step: 120 | Loss: 6.18 | Tokens per second: 24150.10 | Training tokens per second (%): 55.53 | MFU (%): 31.46 | TFLOPs: 311.18 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:29,451 - root - INFO - Step: 125 | Loss: 7.32 | Tokens per second: 24152.55 | Training tokens per second (%): 38.47 | MFU (%): 31.47 | TFLOPs: 311.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:29,451 - root - INFO - Step: 125 | Loss: 7.12 | Tokens per second: 24152.50 | Training tokens per second (%): 24.38 | MFU (%): 31.47 | TFLOPs: 311.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:29,451 - root - INFO - Step: 125 | Loss: 7.35 | Tokens per second: 24152.53 | Training tokens per second (%): 49.58 | MFU (%): 31.47 | TFLOPs: 311.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:29,451 - root - INFO - Step: 125 | Loss: 7.30 | Tokens per second: 24152.46 | Training tokens per second (%): 28.20 | MFU (%): 31.47 | TFLOPs: 311.21 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:31,168 - root - INFO - Step: 130 | Loss: 7.89 | Tokens per second: 23865.67 | Training tokens per second (%): 76.61 | MFU (%): 31.09 | TFLOPs: 307.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:31,168 - root - INFO - Step: 130 | Loss: 7.21 | Tokens per second: 23865.67 | Training tokens per second (%): 23.79 | MFU (%): 31.09 | TFLOPs: 307.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:31,168 - root - INFO - Step: 130 | Loss: 7.39 | Tokens per second: 23865.71 | Training tokens per second (%): 29.72 | MFU (%): 31.09 | TFLOPs: 307.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:31,168 - root - INFO - Step: 130 | Loss: 7.34 | Tokens per second: 23865.71 | Training tokens per second (%): 39.61 | MFU (%): 31.09 | TFLOPs: 307.52 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:32,869 - root - INFO - Step: 135 | Loss: 7.12 | Tokens per second: 24099.78 | Training tokens per second (%): 15.90 | MFU (%): 31.40 | TFLOPs: 310.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:32,869 - root - INFO - Step: 135 | Loss: 7.02 | Tokens per second: 24099.75 | Training tokens per second (%): 47.35 | MFU (%): 31.40 | TFLOPs: 310.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:32,869 - root - INFO - Step: 135 | Loss: 8.03 | Tokens per second: 24099.82 | Training tokens per second (%): 43.57 | MFU (%): 31.40 | TFLOPs: 310.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:32,869 - root - INFO - Step: 135 | Loss: 7.48 | Tokens per second: 24099.77 | Training tokens per second (%): 44.98 | MFU (%): 31.40 | TFLOPs: 310.53 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:34,565 - root - INFO - Step: 140 | Loss: 6.97 | Tokens per second: 24160.54 | Training tokens per second (%): 41.25 | MFU (%): 31.48 | TFLOPs: 311.32 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:34,565 - root - INFO - Step: 140 | Loss: 7.39 | Tokens per second: 24160.48 | Training tokens per second (%): 51.46 | MFU (%): 31.48 | TFLOPs: 311.32 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:34,565 - root - INFO - Step: 140 | Loss: 7.51 | Tokens per second: 24160.46 | Training tokens per second (%): 44.90 | MFU (%): 31.48 | TFLOPs: 311.31 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:34,565 - root - INFO - Step: 140 | Loss: 7.73 | Tokens per second: 24160.49 | Training tokens per second (%): 29.57 | MFU (%): 31.48 | TFLOPs: 311.32 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:36,275 - root - INFO - Step: 145 | Loss: 6.63 | Tokens per second: 23963.59 | Training tokens per second (%): 40.22 | MFU (%): 31.22 | TFLOPs: 308.78 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:36,275 - root - INFO - Step: 145 | Loss: 7.24 | Tokens per second: 23963.62 | Training tokens per second (%): 40.03 | MFU (%): 31.22 | TFLOPs: 308.78 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:36,275 - root - INFO - Step: 145 | Loss: 7.75 | Tokens per second: 23963.66 | Training tokens per second (%): 28.04 | MFU (%): 31.22 | TFLOPs: 308.78 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:36,275 - root - INFO - Step: 145 | Loss: 7.55 | Tokens per second: 23963.71 | Training tokens per second (%): 23.10 | MFU (%): 31.22 | TFLOPs: 308.78 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:37,969 - root - INFO - Step: 150 | Loss: 7.32 | Tokens per second: 24187.82 | Training tokens per second (%): 61.47 | MFU (%): 31.51 | TFLOPs: 311.67 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:37,969 - root - INFO - Step: 150 | Loss: 7.53 | Tokens per second: 24187.77 | Training tokens per second (%): 50.62 | MFU (%): 31.51 | TFLOPs: 311.67 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:37,969 - root - INFO - Step: 150 | Loss: 7.17 | Tokens per second: 24187.78 | Training tokens per second (%): 41.10 | MFU (%): 31.51 | TFLOPs: 311.67 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:37,969 - root - INFO - Step: 150 | Loss: 7.72 | Tokens per second: 24187.85 | Training tokens per second (%): 25.32 | MFU (%): 31.51 | TFLOPs: 311.67 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:39,693 - root - INFO - Step: 155 | Loss: 7.31 | Tokens per second: 23765.94 | Training tokens per second (%): 35.81 | MFU (%): 30.96 | TFLOPs: 306.23 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:39,693 - root - INFO - Step: 155 | Loss: 7.49 | Tokens per second: 23765.90 | Training tokens per second (%): 36.85 | MFU (%): 30.96 | TFLOPs: 306.23 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:39,693 - root - INFO - Step: 155 | Loss: 7.39 | Tokens per second: 23765.97 | Training tokens per second (%): 61.52 | MFU (%): 30.96 | TFLOPs: 306.23 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:39,693 - root - INFO - Step: 155 | Loss: 7.27 | Tokens per second: 23765.99 | Training tokens per second (%): 37.36 | MFU (%): 30.96 | TFLOPs: 306.23 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:41,410 - root - INFO - Step: 160 | Loss: 7.04 | Tokens per second: 23863.51 | Training tokens per second (%): 39.92 | MFU (%): 31.09 | TFLOPs: 307.49 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:41,410 - root - INFO - Step: 160 | Loss: 6.54 | Tokens per second: 23863.64 | Training tokens per second (%): 28.84 | MFU (%): 31.09 | TFLOPs: 307.49 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:41,410 - root - INFO - Step: 160 | Loss: 7.03 | Tokens per second: 23863.61 | Training tokens per second (%): 66.84 | MFU (%): 31.09 | TFLOPs: 307.49 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:41,410 - root - INFO - Step: 160 | Loss: 6.99 | Tokens per second: 23863.48 | Training tokens per second (%): 38.63 | MFU (%): 31.09 | TFLOPs: 307.49 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:43,125 - root - INFO - Step: 165 | Loss: 7.31 | Tokens per second: 23886.86 | Training tokens per second (%): 35.44 | MFU (%): 31.12 | TFLOPs: 307.79 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:43,125 - root - INFO - Step: 165 | Loss: 6.72 | Tokens per second: 23886.82 | Training tokens per second (%): 49.42 | MFU (%): 31.12 | TFLOPs: 307.79 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:43,125 - root - INFO - Step: 165 | Loss: 6.78 | Tokens per second: 23886.90 | Training tokens per second (%): 18.36 | MFU (%): 31.12 | TFLOPs: 307.79 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:43,125 - root - INFO - Step: 165 | Loss: 7.64 | Tokens per second: 23886.90 | Training tokens per second (%): 41.67 | MFU (%): 31.12 | TFLOPs: 307.79 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:44,846 - root - INFO - Step: 170 | Loss: 7.66 | Tokens per second: 23820.19 | Training tokens per second (%): 32.23 | MFU (%): 31.03 | TFLOPs: 306.93 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:44,846 - root - INFO - Step: 170 | Loss: 7.22 | Tokens per second: 23820.18 | Training tokens per second (%): 50.27 | MFU (%): 31.03 | TFLOPs: 306.93 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:44,846 - root - INFO - Step: 170 | Loss: 5.97 | Tokens per second: 23820.14 | Training tokens per second (%): 66.35 | MFU (%): 31.03 | TFLOPs: 306.93 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:44,846 - root - INFO - Step: 170 | Loss: 6.94 | Tokens per second: 23820.23 | Training tokens per second (%): 36.91 | MFU (%): 31.03 | TFLOPs: 306.93 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:46,590 - root - INFO - Step: 175 | Loss: 6.49 | Tokens per second: 23484.91 | Training tokens per second (%): 32.18 | MFU (%): 30.60 | TFLOPs: 302.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:46,590 - root - INFO - Step: 175 | Loss: 7.20 | Tokens per second: 23484.98 | Training tokens per second (%): 62.35 | MFU (%): 30.60 | TFLOPs: 302.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:46,590 - root - INFO - Step: 175 | Loss: 6.38 | Tokens per second: 23484.82 | Training tokens per second (%): 40.45 | MFU (%): 30.60 | TFLOPs: 302.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:46,590 - root - INFO - Step: 175 | Loss: 7.18 | Tokens per second: 23484.88 | Training tokens per second (%): 48.25 | MFU (%): 30.60 | TFLOPs: 302.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:48,270 - root - INFO - Step: 180 | Loss: 6.87 | Tokens per second: 24404.27 | Training tokens per second (%): 29.83 | MFU (%): 31.80 | TFLOPs: 314.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:48,270 - root - INFO - Step: 180 | Loss: 6.78 | Tokens per second: 24404.40 | Training tokens per second (%): 21.20 | MFU (%): 31.80 | TFLOPs: 314.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:48,270 - root - INFO - Step: 180 | Loss: 6.98 | Tokens per second: 24404.33 | Training tokens per second (%): 31.24 | MFU (%): 31.80 | TFLOPs: 314.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:48,270 - root - INFO - Step: 180 | Loss: 7.10 | Tokens per second: 24404.37 | Training tokens per second (%): 23.68 | MFU (%): 31.80 | TFLOPs: 314.46 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:49,979 - root - INFO - Step: 185 | Loss: 6.91 | Tokens per second: 23966.98 | Training tokens per second (%): 68.74 | MFU (%): 31.23 | TFLOPs: 308.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:49,979 - root - INFO - Step: 185 | Loss: 7.17 | Tokens per second: 23966.99 | Training tokens per second (%): 26.38 | MFU (%): 31.23 | TFLOPs: 308.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:49,979 - root - INFO - Step: 185 | Loss: 7.15 | Tokens per second: 23966.90 | Training tokens per second (%): 36.83 | MFU (%): 31.23 | TFLOPs: 308.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:49,979 - root - INFO - Step: 185 | Loss: 7.99 | Tokens per second: 23967.01 | Training tokens per second (%): 36.61 | MFU (%): 31.23 | TFLOPs: 308.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:51,697 - root - INFO - Step: 190 | Loss: 7.20 | Tokens per second: 23855.20 | Training tokens per second (%): 46.43 | MFU (%): 31.08 | TFLOPs: 307.38 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:51,697 - root - INFO - Step: 190 | Loss: 6.97 | Tokens per second: 23855.17 | Training tokens per second (%): 70.87 | MFU (%): 31.08 | TFLOPs: 307.38 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:51,697 - root - INFO - Step: 190 | Loss: 7.28 | Tokens per second: 23855.08 | Training tokens per second (%): 35.03 | MFU (%): 31.08 | TFLOPs: 307.38 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:51,697 - root - INFO - Step: 190 | Loss: 7.05 | Tokens per second: 23855.15 | Training tokens per second (%): 25.28 | MFU (%): 31.08 | TFLOPs: 307.38 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:53,413 - root - INFO - Step: 195 | Loss: 7.23 | Tokens per second: 23872.76 | Training tokens per second (%): 49.31 | MFU (%): 31.10 | TFLOPs: 307.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:53,413 - root - INFO - Step: 195 | Loss: 6.73 | Tokens per second: 23872.73 | Training tokens per second (%): 31.45 | MFU (%): 31.10 | TFLOPs: 307.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:53,413 - root - INFO - Step: 195 | Loss: 7.40 | Tokens per second: 23872.71 | Training tokens per second (%): 53.39 | MFU (%): 31.10 | TFLOPs: 307.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:53,413 - root - INFO - Step: 195 | Loss: 6.86 | Tokens per second: 23872.79 | Training tokens per second (%): 26.32 | MFU (%): 31.10 | TFLOPs: 307.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:55,124 - root - INFO - Step: 200 | Loss: 6.92 | Tokens per second: 23950.07 | Training tokens per second (%): 52.17 | MFU (%): 31.20 | TFLOPs: 308.60 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:55,124 - root - INFO - Step: 200 | Loss: 7.38 | Tokens per second: 23950.16 | Training tokens per second (%): 35.04 | MFU (%): 31.20 | TFLOPs: 308.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:55,124 - root - INFO - Step: 200 | Loss: 6.73 | Tokens per second: 23950.12 | Training tokens per second (%): 41.25 | MFU (%): 31.20 | TFLOPs: 308.60 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:55,124 - root - INFO - Step: 200 | Loss: 6.92 | Tokens per second: 23950.18 | Training tokens per second (%): 59.52 | MFU (%): 31.20 | TFLOPs: 308.61 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:56,818 - root - INFO - Step: 205 | Loss: 6.98 | Tokens per second: 24199.65 | Training tokens per second (%): 25.59 | MFU (%): 31.53 | TFLOPs: 311.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:56,818 - root - INFO - Step: 205 | Loss: 6.66 | Tokens per second: 24199.71 | Training tokens per second (%): 26.38 | MFU (%): 31.53 | TFLOPs: 311.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:56,818 - root - INFO - Step: 205 | Loss: 6.75 | Tokens per second: 24199.65 | Training tokens per second (%): 63.92 | MFU (%): 31.53 | TFLOPs: 311.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:56,818 - root - INFO - Step: 205 | Loss: 6.81 | Tokens per second: 24199.74 | Training tokens per second (%): 27.65 | MFU (%): 31.53 | TFLOPs: 311.82 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:58,508 - root - INFO - Step: 210 | Loss: 7.40 | Tokens per second: 24242.38 | Training tokens per second (%): 45.62 | MFU (%): 31.58 | TFLOPs: 312.37 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:58,508 - root - INFO - Step: 210 | Loss: 8.03 | Tokens per second: 24242.45 | Training tokens per second (%): 15.79 | MFU (%): 31.58 | TFLOPs: 312.37 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:58,508 - root - INFO - Step: 210 | Loss: 7.87 | Tokens per second: 24242.42 | Training tokens per second (%): 22.44 | MFU (%): 31.58 | TFLOPs: 312.37 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:50:58,508 - root - INFO - Step: 210 | Loss: 6.56 | Tokens per second: 24242.43 | Training tokens per second (%): 21.87 | MFU (%): 31.58 | TFLOPs: 312.37 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:00,212 - root - INFO - Step: 215 | Loss: 6.68 | Tokens per second: 24049.24 | Training tokens per second (%): 56.14 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:00,212 - root - INFO - Step: 215 | Loss: 7.37 | Tokens per second: 24049.34 | Training tokens per second (%): 20.32 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:00,212 - root - INFO - Step: 215 | Loss: 6.54 | Tokens per second: 24049.26 | Training tokens per second (%): 38.17 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:00,212 - root - INFO - Step: 215 | Loss: 7.67 | Tokens per second: 24049.37 | Training tokens per second (%): 28.92 | MFU (%): 31.33 | TFLOPs: 309.88 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:01,935 - root - INFO - Step: 220 | Loss: 6.97 | Tokens per second: 23779.58 | Training tokens per second (%): 53.53 | MFU (%): 30.98 | TFLOPs: 306.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:01,935 - root - INFO - Step: 220 | Loss: 7.11 | Tokens per second: 23779.61 | Training tokens per second (%): 62.31 | MFU (%): 30.98 | TFLOPs: 306.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:01,935 - root - INFO - Step: 220 | Loss: 7.24 | Tokens per second: 23779.69 | Training tokens per second (%): 52.39 | MFU (%): 30.98 | TFLOPs: 306.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:01,935 - root - INFO - Step: 220 | Loss: 6.81 | Tokens per second: 23779.69 | Training tokens per second (%): 36.65 | MFU (%): 30.98 | TFLOPs: 306.41 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:03,652 - root - INFO - Step: 225 | Loss: 7.58 | Tokens per second: 23871.26 | Training tokens per second (%): 60.49 | MFU (%): 31.10 | TFLOPs: 307.59 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:03,652 - root - INFO - Step: 225 | Loss: 7.51 | Tokens per second: 23871.26 | Training tokens per second (%): 17.36 | MFU (%): 31.10 | TFLOPs: 307.59 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:03,652 - root - INFO - Step: 225 | Loss: 6.47 | Tokens per second: 23871.35 | Training tokens per second (%): 33.09 | MFU (%): 31.10 | TFLOPs: 307.59 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:03,652 - root - INFO - Step: 225 | Loss: 7.28 | Tokens per second: 23871.37 | Training tokens per second (%): 46.07 | MFU (%): 31.10 | TFLOPs: 307.59 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:05,360 - root - INFO - Step: 230 | Loss: 7.10 | Tokens per second: 23981.62 | Training tokens per second (%): 54.63 | MFU (%): 31.24 | TFLOPs: 309.01 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:05,360 - root - INFO - Step: 230 | Loss: 6.30 | Tokens per second: 23981.66 | Training tokens per second (%): 45.48 | MFU (%): 31.24 | TFLOPs: 309.01 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:05,360 - root - INFO - Step: 230 | Loss: 6.67 | Tokens per second: 23981.69 | Training tokens per second (%): 53.33 | MFU (%): 31.24 | TFLOPs: 309.01 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:05,360 - root - INFO - Step: 230 | Loss: 6.73 | Tokens per second: 23981.68 | Training tokens per second (%): 33.52 | MFU (%): 31.24 | TFLOPs: 309.01 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:07,058 - root - INFO - Step: 235 | Loss: 6.94 | Tokens per second: 24139.52 | Training tokens per second (%): 47.39 | MFU (%): 31.45 | TFLOPs: 311.04 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:07,058 - root - INFO - Step: 235 | Loss: 6.56 | Tokens per second: 24139.49 | Training tokens per second (%): 33.66 | MFU (%): 31.45 | TFLOPs: 311.04 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:07,058 - root - INFO - Step: 235 | Loss: 7.07 | Tokens per second: 24139.49 | Training tokens per second (%): 38.65 | MFU (%): 31.45 | TFLOPs: 311.04 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:07,058 - root - INFO - Step: 235 | Loss: 7.22 | Tokens per second: 24139.53 | Training tokens per second (%): 28.22 | MFU (%): 31.45 | TFLOPs: 311.05 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:08,755 - root - INFO - Step: 240 | Loss: 6.65 | Tokens per second: 24148.43 | Training tokens per second (%): 21.17 | MFU (%): 31.46 | TFLOPs: 311.16 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:08,755 - root - INFO - Step: 240 | Loss: 6.82 | Tokens per second: 24148.52 | Training tokens per second (%): 44.20 | MFU (%): 31.46 | TFLOPs: 311.16 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:08,755 - root - INFO - Step: 240 | Loss: 6.38 | Tokens per second: 24148.45 | Training tokens per second (%): 23.52 | MFU (%): 31.46 | TFLOPs: 311.16 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:08,755 - root - INFO - Step: 240 | Loss: 7.74 | Tokens per second: 24148.50 | Training tokens per second (%): 31.04 | MFU (%): 31.46 | TFLOPs: 311.16 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:10,462 - root - INFO - Step: 245 | Loss: 7.29 | Tokens per second: 24002.06 | Training tokens per second (%): 56.42 | MFU (%): 31.27 | TFLOPs: 309.27 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:10,462 - root - INFO - Step: 245 | Loss: 7.11 | Tokens per second: 24002.05 | Training tokens per second (%): 20.40 | MFU (%): 31.27 | TFLOPs: 309.27 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:10,462 - root - INFO - Step: 245 | Loss: 6.94 | Tokens per second: 24002.10 | Training tokens per second (%): 42.85 | MFU (%): 31.27 | TFLOPs: 309.27 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:10,462 - root - INFO - Step: 245 | Loss: 7.02 | Tokens per second: 24001.98 | Training tokens per second (%): 52.58 | MFU (%): 31.27 | TFLOPs: 309.27 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:12,151 - root - INFO - Step: 250 | Loss: 7.15 | Tokens per second: 24262.16 | Training tokens per second (%): 26.95 | MFU (%): 31.61 | TFLOPs: 312.63 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:12,151 - root - INFO - Step: 250 | Loss: 7.43 | Tokens per second: 24262.03 | Training tokens per second (%): 23.88 | MFU (%): 31.61 | TFLOPs: 312.62 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:12,151 - root - INFO - Step: 250 | Loss: 6.87 | Tokens per second: 24262.18 | Training tokens per second (%): 41.03 | MFU (%): 31.61 | TFLOPs: 312.63 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:12,151 - root - INFO - Step: 250 | Loss: 6.87 | Tokens per second: 24262.09 | Training tokens per second (%): 42.08 | MFU (%): 31.61 | TFLOPs: 312.62 | Mem Allocated (GB): 50.54 | Mem Reserved (GB): 77.11 | Max Mem Allocated (GB): 67.79
+2025-12-17 17:51:12,151 - root - INFO - Training completed
+2025-12-17 17:51:12,151 - root - INFO - Training completed
+2025-12-17 17:51:12,151 - root - INFO - Training completed
+2025-12-17 17:51:12,151 - root - INFO - Training completed
+[2025-12-17 17:51:17,005] [INFO] [launch.py:367:main] Process 20994 exits successfully.
+[2025-12-17 17:51:18,006] [INFO] [launch.py:367:main] Process 20997 exits successfully.
+[2025-12-17 17:51:18,006] [INFO] [launch.py:367:main] Process 20988 exits successfully.
+[2025-12-17 17:51:18,006] [INFO] [launch.py:367:main] Process 20991 exits successfully.
+END TIME: Wed Dec 17 17:51:21 CET 2025

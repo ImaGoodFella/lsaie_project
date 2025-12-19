@@ -26,8 +26,11 @@ def init_logger():
     ch.setFormatter(formatter)
     logger.addHandler(ch)
 
-def get_num_params(model: torch.nn.Module, exclude_embedding: bool = False) -> int:
-    num_params = sum(p.numel() for p in model.parameters())
+def get_num_params(model: torch.nn.Module, exclude_embedding: bool = False, is_partitioned=False) -> int:
+    if is_partitioned:
+        num_params = sum(p.ds_numel for p in model.parameters())
+    else:
+        num_params = sum(p.numel() for p in model.parameters())
     if exclude_embedding:
         num_params -= sum(
             sum(p.numel() for p in m.parameters())
@@ -183,5 +186,27 @@ def get_args():
         action='store_true',
         help="Set to compile the model with `torch.compile`"
     )
+
+    parser.add_argument(
+        "--deepspeed",
+        action='store_true',
+        help="If set, use DeepSpeed",
+    )
+
+    parser.add_argument(
+        "--deepspeed-config",
+        "--deepspeed_config",
+        type=str,
+        default="deepspeed_config.json",
+        help="Path to DeepSpeed config file",
+    )
+
+    parser.add_argument(
+        "--local_rank",
+        type=int,
+        default=-1,
+        help="Local rank passed from distributed launcher",
+    )
+
     args = parser.parse_args()
     return args

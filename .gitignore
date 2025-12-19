@@ -1,0 +1,9 @@
+*.err
+*.out
+*.nsys-rep
+
+__pycache__/
+logs/
+data/
+
+*_results/
