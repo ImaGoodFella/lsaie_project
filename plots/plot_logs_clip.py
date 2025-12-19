@@ -13,8 +13,8 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 import numpy as np
 
-LOG_DIR = Path("/Users/bzui/lsaie_project/logs/final")
-OUTPUT_DIR = Path("/Users/bzui/lsaie_project")
+LOG_DIR = Path("/users/rasteiger/LSAIE-Project/logs")
+OUTPUT_DIR = Path("/users/rasteiger/LSAIE-Project")
 
 STEP_PATTERN = re.compile(
     r"Step: (\d+) \| Loss: ([\d.]+) \| Tokens per second: ([\d.]+) \| "
@@ -84,57 +84,90 @@ def compute_stats(all_data):
 
 def plot_grad_clip_comparison(all_data, summary):
     """Create focused grad clip comparison: throughput vs loss tradeoff."""
-    fig, axes = plt.subplots(2, 2, figsize=(12, 8))
-    fig.suptitle('Gradient Clipping Tradeoff: Throughput vs Loss\n(Offload stages require rollback & recompute with grad clip)', 
-                 fontsize=12, fontweight='bold')
-    
     stages = ["ZeroOffload", "SuperOffload"]
     colors = {"With Grad Clip": "#e74c3c", "No Grad Clip": "#3498db"}
     
-    for idx, stage in enumerate(stages):
-        # Left column: Throughput over time
-        ax_throughput = axes[idx, 0]
+    # Collect all data to determine shared y-axis limits
+    all_throughputs = []
+    all_losses = []
+    for stage in stages:
         for grad_clip in ["No Grad Clip", "With Grad Clip"]:
             key = (stage, grad_clip)
             if key in all_data:
                 data = all_data[key]
-                ax_throughput.plot(data["steps"], [t / 1000 for t in data["tokens_per_sec"]], 
-                                  label=grad_clip, color=colors[grad_clip], linewidth=2, alpha=0.8)
-        
-        # Add throughput stats
-        #no_clip_tp = summary.get((stage, "No Grad Clip"), {}).get("avg_throughput", 0) / 1000
-        #with_clip_tp = summary.get((stage, "With Grad Clip"), {}).get("avg_throughput", 0) / 1000
-        #slowdown = (1 - with_clip_tp / no_clip_tp) * 100 if no_clip_tp > 0 else 0
-        
-        ax_throughput.set_xlabel('Step')
-        ax_throughput.set_ylabel('Throughput (k tokens/sec)')
-        #ax_throughput.set_title(f'{stage} - Throughput\n(Grad clip: {slowdown:.1f}% slower)')
-        ax_throughput.legend(fontsize=9)
-        ax_throughput.grid(alpha=0.3)
-        
-        # Right column: Loss over time
-        ax_loss = axes[idx, 1]
-        for grad_clip in ["No Grad Clip", "With Grad Clip"]:
-            key = (stage, grad_clip)
-            if key in all_data:
-                data = all_data[key]
-                ax_loss.plot(data["steps"], data["loss"], 
-                            label=grad_clip, color=colors[grad_clip], linewidth=2, alpha=0.8)
-        
-        # Add loss stats
-        #no_clip_loss = summary.get((stage, "No Grad Clip"), {}).get("avg_loss", 0)
-        #with_clip_loss = summary.get((stage, "With Grad Clip"), {}).get("avg_loss", 0)
-        #loss_diff = with_clip_loss - no_clip_loss
-        
-        ax_loss.set_xlabel('Step')
-        ax_loss.set_ylabel('Loss')
-        #ax_loss.set_title(f'{stage} - Loss\n(Grad clip: {loss_diff:+.2f} avg loss)')
-        ax_loss.legend(fontsize=9)
-        ax_loss.grid(alpha=0.3)
+                all_throughputs.extend([t / 1000 for t in data["tokens_per_sec"]])
+                all_losses.extend(data["loss"])
     
-    plt.tight_layout()
-    plt.savefig(OUTPUT_DIR / 'grad_clip_comparison.png', dpi=150, bbox_inches='tight')
-    print(f"\n✓ Saved: grad_clip_comparison.png")
+    # Calculate y-axis limits with some padding
+    throughput_margin = (max(all_throughputs) - min(all_throughputs)) * 0.05
+    loss_margin = (max(all_losses) - min(all_losses)) * 0.05
+    throughput_ylim = (min(all_throughputs) - throughput_margin, max(all_throughputs) + throughput_margin)
+    loss_ylim = (min(all_losses) - loss_margin, max(all_losses) + loss_margin)
+    
+    # Plot 1: Throughput comparison
+    fig_throughput, axes_throughput = plt.subplots(1, 2, figsize=(16, 7))
+    
+    for idx, stage in enumerate(stages):
+        ax = axes_throughput[idx]
+        for grad_clip in ["No Grad Clip", "With Grad Clip"]:
+            key = (stage, grad_clip)
+            if key in all_data:
+                data = all_data[key]
+                ax.plot(data["steps"], [t / 1000 for t in data["tokens_per_sec"]], 
+                       label=grad_clip, color=colors[grad_clip], linewidth=3, alpha=0.8)
+        
+        ax.set_xlabel('Step', fontsize=25)
+        if idx == 0:
+            ax.set_ylabel('Throughput (k tokens/sec)', fontsize=25)
+        ax.set_ylim(throughput_ylim)
+        ax.legend(fontsize=25, loc='best')
+        ax.tick_params(axis='both', which='major', labelsize=25)
+        ax.grid(alpha=0.3)
+    
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    
+    # Add stage titles
+    for idx, stage in enumerate(stages):
+        pos = axes_throughput[idx].get_position()
+        center_x = (pos.x0 + pos.x1) / 2
+        center_y = pos.y1 + 0.01
+        fig_throughput.text(center_x, center_y, stage, ha='center', va='bottom', fontsize=30)
+    
+    plt.savefig(OUTPUT_DIR / 'grad_clip_throughput.png', dpi=150, bbox_inches='tight')
+    print(f"\n✓ Saved: grad_clip_throughput.png")
+    plt.close()
+    
+    # Plot 2: Loss comparison
+    fig_loss, axes_loss = plt.subplots(1, 2, figsize=(16, 7))
+    
+    for idx, stage in enumerate(stages):
+        ax = axes_loss[idx]
+        for grad_clip in ["No Grad Clip", "With Grad Clip"]:
+            key = (stage, grad_clip)
+            if key in all_data:
+                data = all_data[key]
+                ax.plot(data["steps"], data["loss"], 
+                       label=grad_clip, color=colors[grad_clip], linewidth=3, alpha=0.8)
+        
+        ax.set_xlabel('Step', fontsize=25)
+        if idx == 0:
+            ax.set_ylabel('Loss', fontsize=25)
+        ax.set_ylim(loss_ylim)
+        ax.legend(fontsize=25, loc='best')
+        ax.tick_params(axis='both', which='major', labelsize=25)
+        ax.grid(alpha=0.3)
+    
+    plt.tight_layout(rect=[0, 0, 1, 0.96])
+    
+    # Add stage titles
+    for idx, stage in enumerate(stages):
+        pos = axes_loss[idx].get_position()
+        center_x = (pos.x0 + pos.x1) / 2
+        center_y = pos.y1 + 0.01
+        fig_loss.text(center_x, center_y, stage, ha='center', va='bottom', fontsize=30)
+    
+    plt.savefig(OUTPUT_DIR / 'grad_clip_loss.png', dpi=150, bbox_inches='tight')
+    print(f"\n✓ Saved: grad_clip_loss.png")
     plt.close()
 
 
