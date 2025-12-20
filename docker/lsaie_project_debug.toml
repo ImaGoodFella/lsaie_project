@@ -1,5 +1,5 @@
 image = "/iopsstor/scratch/cscs/${USER}/images/lsaie_project.sqsh"
-mounts = ["/iopsstor/scratch/cscs/${USER}:/iopsstor/scratch/cscs/${USER}:rw", "/users/${USER}/.cache/huggingface:/users/${USER}/.cache/huggingface:rw", "/users/${USER}/LSAIE-Project:/users/${USER}/LSAIE-Project:rw", "/capstor:/capstor:r", "/users/${USER}/lsaie_deepspeed:/users/${USER}/lsaie_deepspeed:rw"]
+mounts = ["/iopsstor/scratch/cscs/${USER}:/iopsstor/scratch/cscs/${USER}:rw", "/users/${USER}/.cache/huggingface:/users/${USER}/.cache/huggingface:rw", "/users/${USER}/LSAIE-Project:/users/${USER}/LSAIE-Project:rw", "/capstor:/capstor:r", "/users/${USER}/lsaie_deepspeed:/users/${USER}/lsaie_deepspeed:rw", "/users/${USER}/DeepSpeedExamples:/users/${USER}/DeepSpeedExamples:rw", "/users/rasteiger/random_git_repos/DeepSpeed:/users/rasteiger/random_git_repos/DeepSpeed:rw"]
 workdir = "/users/${USER}"
 
 [env]
